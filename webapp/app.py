@@ -8,7 +8,11 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
-def hello() -> str:
+def entry_page() -> 'html':
+    return render_template('entry.html', the_title='welcome to the app recommender')
+
+@app.route('/test')
+    def hello() -> str:
     return 'Hello world from Flask'
 
 @app.route('/entry')

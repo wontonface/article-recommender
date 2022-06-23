@@ -30,6 +30,12 @@ html {
     font-weight: 800;
 }
 
+.section-subtext {
+    font-family: 'Inter', sans-serif;
+    color: var(--neutral-800);
+    font-size: 16px;
+}
+
 .text-container {
     display: flex;
     flex-direction: column;
@@ -49,7 +55,7 @@ h1 {
 .button-main {
     background-color: var(--purple-500);
     border: 1px solid transparent;
-    border-radius: .75rem;
+    border-radius: 3rem;
     box-sizing: border-box;
     color: var(--purple-100);
     cursor: pointer;
@@ -85,6 +91,51 @@ h1 {
     .button-main {
         padding: .75rem 1.5rem;
     }
+}
+
+.body-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.option-card-horizontal {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px 40px;
+    gap: 24px;
+    width: 700px;
+    height: 104px;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #D4D4D4;
+    border-radius: 20px;
+}
+
+.option-card-horizontal:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-content-text {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 4px;
+}
+
+.card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: #1c1c1c;
+    font-weight: 500;
 }
 
 .footer {

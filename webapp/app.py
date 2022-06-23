@@ -15,6 +15,10 @@ def entry_page() -> 'html':
 def hello() -> str:
     return 'Hello world from Flask'
 
+@app.route('/your-goals')
+def yourgoals_page() -> 'html':
+    return render_template('your-goals.html')
+
 # @app.route('/entry')
 # def entry_page() -> 'html':
   #  return render_template('entry.html', the_title='welcome to the app recommender')

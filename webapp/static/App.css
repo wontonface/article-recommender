@@ -1,9 +1,4 @@
-@font-face {
-    font-family: "Inter";
-    font-weight: 500;
-    font-display: fallback;
-    src: url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-}
+
 
 html {
     scroll-behavior: smooth;
@@ -18,13 +13,38 @@ html {
     --neutral-800: #1c1c1c;
 }
 
-.section-title {
-    font-family: "Inter", sans-serif;
-    color: var(--neutral-800);
-    font-size: 32px;
-    font-weight: 600;
+.body-content {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    gap: 24px;
 }
 
+.section-title {
+    font-family: 'Inter', sans-serif;
+    color: var(--neutral-800);
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    gap: 24px;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    color: var(--neutral-800);
+    font-size: 64px;
+    line-height: 64px;
+    font-weight: 700;
+    margin: 0;
+}
 
 .button-main {
     background-color: var(--purple-500);
@@ -34,9 +54,9 @@ html {
     color: var(--purple-100);
     cursor: pointer;
     flex: 0 0 autp;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5rem;
     padding: .75rem 1.2 rem;
     text-align: center;
@@ -48,7 +68,7 @@ html {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: auto;
+    width: 150px;
 }
 
 .button-main:hover {
@@ -65,4 +85,16 @@ html {
     .button-main {
         padding: .75rem 1.5rem;
     }
+}
+
+.footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    gap: 24px;
+    justify-content: center;
 }

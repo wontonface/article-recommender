@@ -9,15 +9,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def entry_page() -> 'html':
-    return render_template('entry.html', the_title='welcome to the app recommender')
+    return render_template('entry.html', the_title='Welcome to the article recommender')
 
 @app.route('/test')
-    def hello() -> str:
+def hello() -> str:
     return 'Hello world from Flask'
 
-@app.route('/entry')
-def entry_page() -> 'html':
-    return render_template('entry.html', the_title='welcome to the app recommender')
+# @app.route('/entry')
+# def entry_page() -> 'html':
+  #  return render_template('entry.html', the_title='welcome to the app recommender')
 
 app.run()
 

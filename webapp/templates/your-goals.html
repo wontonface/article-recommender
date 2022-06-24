@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
 
+
+
 <div class="body-content" role="main">
     <div class="text-container">
         <div class="section-title">
@@ -11,7 +13,7 @@
         </div>
     </div>
     <div class="body-options" role="list">
-        <div class="option-card-horizontal" role="listitem">
+        <button class="button-card-horizontal" onclick="clickAndSelect4()">
             <div class="card-content">
                 <i class="ph-line-segments" style="font-size: 2.5em"></i>
                 <div class="card-content-text">
@@ -20,7 +22,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </button>
         <div class="option-card-horizontal" role="listitem">
             <div class="card-content">
                 <i class="ph-confetti" style="font-size: 2.5em"></i>
@@ -30,7 +32,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>       
         <div class="option-card-horizontal" role="listitem">
             <div class="card-content">
                 <i class="ph-android-logo" style="font-size: 2.5em"></i>
@@ -50,6 +52,79 @@
 </div>
 
 
+<script>
+    function clickAndSelect() {
+        const elem = document.getElementById('option-card-horizontal');
+        elem.style.background = "#f5f3ff";
+    }
+
+    function clickAndSelect2() {
+        const foo = document.querySelector('.option-card-horizontal');
+        const selectedCards = foo.classList;
+
+        foo.addEventListener('click', function()) {
+            const result = selectedCards.toggle('selected');
+
+            if (result) {
+                document.getElementById("option-card-horizontal").style.background = "#000000";
+            } else {
+            }
+        }
+    }
+
+    function clickAndSelect3() {
+        let selectedArray = Array.from(document.querySelectorAll(".option-card-horizontal")),
+            elements = [];
+
+        // Add child nodes to clickable elements
+        selectedArray.forEach((option-card-horizontal) => {
+            elements = elements.concat(Array.from(option-card-horizontal.children));
+        });
+
+        // Attach to mouse events
+        elements.forEach((element) => {
+            // click: Disable
+            element.addEventListener("click", (e) => e.preventDefault());
+
+            // mousedown: Log the timestamp
+            element.addEventListener("mousedown", (e) => {
+            let option-card-horizontal = e.target.closest(".option-card-horizontal");
+            option-card-horizontal.setAttribute("data-md", Date.now());
+            });
+
+            // mouseup: Determine whether to click
+            element.addEventListener("mouseup", (e) => {
+
+            let option-card-horizontal = e.target.classList.contains("option-card-horizontal")
+                ? e.target
+                : e.target.closest(".option-card-horizontal"),
+                then = option-card-horizontal.getAttribute("data-md"),
+                now = Date.now();
+
+            // Allow 200ms to distinguish click from non-click
+            if (now - then < 200) {
+                // Visit the link in the card
+                // Change 'a' to a class if you have multiple links
+                window.location = option-card-horizontal.querySelector("a").href;
+
+                // Remove for production
+                option-card-horizontal.classList.toggle("selected");
+                console.log(option-card-horizontal.querySelector("a").href);
+            }
+
+            // Clean up
+            option-card-horizontal.removeAttribute("data-md");
+            });
+        });
+        }
+
+    }
+
+
+    function clickandSelect4() {
+        document.getElementById("option-card-horizontal").classList.toggle("option-card-horizontal-selected");
+    }
+</script>
 
 
 {% endblock %}

@@ -19,6 +19,12 @@ def hello() -> str:
 def yourgoals_page() -> 'html':
     return render_template('your-goals.html')
 
+
+@app.route ('/results2')
+def results_page() -> 'html':
+    return render_template('results2.html')
+
+
 # @app.route('/entry')
 # def entry_page() -> 'html':
   #  return render_template('entry.html', the_title='welcome to the app recommender')

@@ -17,3 +17,9 @@ input {
     box-sizing: border-box;
     padding: 0;
 }
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #6C55F7;
+}

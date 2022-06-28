@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% import 'components.html' as components %}
 {% block body %}
+
+{{ components.navigation() }}
 
 <div class="body-content">
     <!---- Start page content ----->
@@ -88,11 +91,7 @@
     
     <button class="button-main" role="button">Restart</button>
     
-    <div class="footer">
-        <img src="static/Avatar-Circle-1.gif" width="60" height="60">
-        <p class="footer">Built and designed by <a href="nicoleiliana.com">Nicole Garcia</a></p>
-    </div>
-
+    {{ components.footer() }}
 </div>
 
 

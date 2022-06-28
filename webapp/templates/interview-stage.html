@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% import 'components.html' as components %}
 {% block body %}
+
+{{ components.navigation() }}
 
 <div class="body-content" role="main">
     <!---- Start page content ----->
@@ -72,11 +75,7 @@
             <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
             <button class="button-next" role="button">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
         </div>
-</div>
-
-<div class="footer">
-    <img src="static/Avatar-Circle-1.gif" width="100" height="100">
-    <p>Built and designed by <a href="nicoleiliana.com">Nicole Garcia</a></p>
+    {{ components.footer() }}
 </div>
 
 

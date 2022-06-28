@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% import 'components.html' as components %}
 {% block body %}
+
+{{ components.navigation() }}
 
 <div class="body-content" role="main">
     <!---- Start page content ----->
@@ -51,6 +54,9 @@
             <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
             <button class="button-next" role="button">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
         </div>
+    {{ components.footer() }}
 </div>
+
+
 
 {% endblock %}

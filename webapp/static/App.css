@@ -30,6 +30,7 @@ html {
     color: var(--neutral-800);
     font-size: 48px;
     font-weight: 700;
+    margin: 0;
 }
 
 h2.page-title {
@@ -46,12 +47,14 @@ h2.page-title {
     align-items: center;
     margin: 0px;
     padding: 24px 0 0 0;
+    justify-content: left;
 }
 
 .section-subtext {
     font-family: 'Inter', sans-serif;
     color: var(--neutral-800);
     font-size: 20px;
+    margin: 0;
 }
 
 p.page-subtext {

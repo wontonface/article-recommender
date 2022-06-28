@@ -2,9 +2,28 @@
 {% block body %}
 
 <div class="body-content">
-    <div class="title-container">
-        <h2 class="page-title">Here are your recommended articles</h2>
-        <p class="page-subtext">Interested in reading more? View all articles <a href="https://wontonface.substack.com/">here.</a></p>
+    <!---- Start page content ----->
+    <!---- Progress bar ----->
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li class="complete" aria-label="Article quiz - Step 1">
+            <a href="/current-designer" tabindex="0">Are you a designer?</a>
+        </li>
+        <li class="complete" aria-label="Article quiz - Step 1.5">
+            <a href="/aspiring-designer" tabindex="0" aria-label="Article Quiz - Step 1.5">Are you interested in becoming a product designer?</a>
+        </li>
+        <li class="complete" aria-label="Article quiz - Step 2">
+            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2">What are you interested in?</a>
+        </li>
+        <li class="complete" aria-label="Article Quiz - Step 3">
+            <a href="/interview-status" tabindex="0" aria-label="Article Quiz - Step 3">Interviewing status</a>
+        </li>
+        <li class="complete" aria-label="Article Quiz - Step 4">
+            <a href="/interview-stage" tabindex="0" aria-label="Article Quiz - Step 4">Interview stage</a>
+        </li>
+    </ul>
+    <div class="text-container">
+        <h2 class="section-title">Here are your recommended articles</h2>
+        <p class="section-subtext">Interested in reading more? View all articles <a href="https://wontonface.substack.com/">here.</a></p>
     </div>
     
     <div class="results-container">

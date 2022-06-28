@@ -19,10 +19,10 @@ def hello() -> str:
 def currentdesigner_page() -> 'html':
     return render_template('your-role.html')
 
-## Remove ## when aspiring-designer is ready
-## @app.route('/aspiring-designer')
-## def aspiringdesigner_page() -> 'html':
-##    return render_template('aspiring-designer.html')
+
+@app.route('/aspiring-designer')
+def aspiringdesigner_page() -> 'html':
+    return render_template('aspiring-designer.html')
 
 @app.route('/your-goals')
 def yourgoals_page() -> 'html':

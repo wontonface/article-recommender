@@ -211,6 +211,22 @@ h1 {
     color: #1c1c1c;
 }
 
+.card-content-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border-radius: 20px;
+    padding: 32px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: -1px;
+    text-align: left;
+    color: #1c1c1c;
+    width: 150px;
+}
+
 .card-content-text {
     display: flex;
     flex-direction: column;
@@ -478,13 +494,6 @@ p.results-card-description {
     position: absolute;
 }
 
-
-/*
-input[type="checkbox"]:checked + label {
-    box-shadow: 0 0 0 3px hotpink;
-}
-*/
-
 .goal-checkbox:checked + label {
     color: #0F006A;
     border: 3px solid #6366F1;
@@ -496,6 +505,12 @@ input[type="checkbox"]:checked + label {
 .quiz-container-goals {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+
+.quiz-container-column {
+    display: flex;
+    flex-direction: row;
     gap: 20px;
 }
 
@@ -597,4 +612,39 @@ input[type="checkbox"]:checked + label {
     touch-action: manipulation;
     width: 150px;
     height: 56px;
+}
+
+
+.column-btn-wrapper {
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid #D4D4D4;
+    border-radius: 20px;
+    padding: 0;
+}
+
+.column-btn-wrapper:hover {
+    border: 2px solid #ADADAD;
+    margin: -1px;
+    transition: 0.2s;
+}
+.column-checkbox {
+    opacity: 0;
+    width: 0;
+    position: absolute;
+}
+
+.column-checkbox:checked + label {
+    color: #0F006A;
+    border: 3px solid #6366F1;
+    background-color: #F5F3FF;
+    margin: -4px;
+    transition: 0.1s;
+}
+
+.column-container-goals {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }

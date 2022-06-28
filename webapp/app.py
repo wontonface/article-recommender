@@ -15,10 +15,28 @@ def entry_page() -> 'html':
 def hello() -> str:
     return 'Hello world from Flask'
 
+@app.route('/current-designer')
+def currentdesigner_page() -> 'html':
+    return render_template('your-role.html')
+
+## Remove ## when aspiring-designer is ready
+## @app.route('/aspiring-designer')
+## def aspiringdesigner_page() -> 'html':
+##    return render_template('aspiring-designer.html')
+
 @app.route('/your-goals')
 def yourgoals_page() -> 'html':
     return render_template('your-goals.html')
 
+## Remove ## when interview-status is ready
+## @app.route('/interview-status')
+## def interviewstatus_page -> 'html':
+##    return render_template('interview-status.html')
+
+
+@app.route('/interview-stage')
+def interviewstage_page() -> 'html':
+    return render_template('interview-stage.html')
 
 @app.route ('/results2')
 def results_page() -> 'html':

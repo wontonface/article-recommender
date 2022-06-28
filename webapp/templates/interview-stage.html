@@ -2,29 +2,52 @@
 {% block body %}
 
 <div class="body-content" role="main">
+    <!---- Start page content ----->
     <div class="text-container">
         <div class="section-title">
-            Which of the following are you interested in?
+            What stage of the process are you in?
         </div>
         <div class="section-subtext">
             Select all that apply.
         </div>
     </div>
-    <div class="body-options" role="list">
-        <div class="option-card-horizontal" role="listitem">
-            <div class="card-content">
-                <i class="ph-file-arrow-up" style="font-size: 2.5em"></i>
+    <div class="quiz-container-goals" role="group">
+        <button class="goal-btn-wrapper">
+            <input id="stage-1" class="goal-checkbox" type="checkbox" name="stage" value="applying" aria-label="Select stage - Just applying; I haven't started interviewing yet">
+            <label for="stage-1" class="card-content">
+                <i class="ph-file-arrow-up-bold" style="font-size: 1.5em"></i>
                 <div class="card-content-text">
-                    <div class="card-title">
-                        <div class="card-name">Just applying</div>
-                    </div>
-                    <div class="card-subtext">
-                        <div class="card-description">I haven't started interviewing yet</div>
-                    </div>
+                    <h3 class="result-card-headline">Just applying</h3>
+                    <p class="results-card-description">I haven't started interviewing yet</p>
                 </div>
-            </div>
-        </div>        
-    </div>
+        </button>
+        <button class="goal-btn-wrapper">
+            <input id="stage-2" class="goal-checkbox" type="checkbox" name="stage" value="early" aria-label="Select stage - Early stage; applying, speaking to recruiters">
+            <label for="stage-2" class="card-content">
+                <i class="ph-flow-arrow-bold" style="font-size: 1.5em"></i>
+                <div class="card-content-text">
+                    <h3 class="result-card-headline">Early stage</h3>
+                    <p class="results-card-description">Applying, speaking to recruiters</p>
+                </div>
+        </button>
+        <button class="goal-btn-wrapper">
+            <input id="stage-3" class="goal-checkbox" type="checkbox" name="stage" value="mid" aria-label="Select stage - Mid stage; speaking to hiring managers, design exercise">
+            <label for="stage-3" class="card-content">
+                <i class="ph-strategy-bold" style="font-size: 1.5em"></i>
+                <div class="card-content-text">
+                    <h3 class="result-card-headline">Mid stage</h3>
+                    <p class="results-card-description">Speaking to hiring managers, design exercise</p>
+                </div>
+        </button>
+        <button class="goal-btn-wrapper">
+            <input id="stage-4" class="goal-checkbox" type="checkbox" name="stage" value="late" aria-label="Select stage - Late stage; portfolio presentation, team interviews">
+            <label for="stage-4" class="card-content">
+                <i class="ph-polygon-bold" style="font-size: 1.5em"></i>
+                <div class="card-content-text">
+                    <h3 class="result-card-headline">Late stage</h3>
+                    <p class="results-card-description">Portfolio presentation, team interviews</p>
+                </div>
+        </button>
 </div>
 
 <div class="footer">

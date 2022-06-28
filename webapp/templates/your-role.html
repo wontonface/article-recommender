@@ -8,9 +8,24 @@
         </div>
     </div>
     <div class="body-options">
-        
+        <div class="quiz-container-column" role="group">
+            <button class="column-btn-wrapper">
+                <input id="currentdesigner-1" class="column-checkbox" type="radio" name="currentdesigner" value="yes" aria-label="Are you currently working as a product designer - Yes">
+                <label for="currentdesigner-1" class="card-content-vertical">
+                    <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
+                    Yes, I am
+            </button>
+            <button class="column-btn-wrapper">
+                <input id="currentdesigner-2" class="column-checkbox" type="radio" name="currentdesigner" value="no" aria-label="Are you currently working as a product designer - No">
+                <label for="currentdesigner-2" class="card-content-vertical"> 
+                    <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
+                    No, I'm not
+            </button>
+        </div>
     </div>
 </div>
+
+<!--- Can change column-checkbox to be more generic, like column-select, since it will apply for both checkbox AND radio -->
 
 <div class="footer">
     <img src="static/Avatar-Circle-1.gif" width="100" height="100">

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="body-content" role="main">
+    <!---- Start page content ----->
+    <!---- Progress bar ----->
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li class="complete" aria-label="Article quiz - Step 1">
+            <a href="/current-designer" tabindex="0">Are you a designer?</a>
+        </li>
+        <li class="complete" aria-label="Article quiz - Step 2">
+            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2">What are you interested in?</a>
+        </li>
+        <li class="complete" aria-label="Article Quiz - Step 3">
+            <a href="/interview-status" tabindex="0" aria-label="Article Quiz - Step 3">Interviewing status</a>
+        </li>
+        <li class="enable" aria-label="Article Quiz - Step 4">
+            <a href="/interview-stage" tabindex="0" aria-label="Article Quiz - Step 4 - pending">Interview stage</a>
+        </li>
+    </ul>
+
+    <!---- Header ----->
+    <div class="text-container">
+        <h2 class="page-title">
+            Have you started applying and/or interviewing?
+        </h2>
+    </div>
+
+    <!---- Options ------>
+    <div class="body-options">
+        <div class="quiz-container-column" role="group">
+            <button class="column-btn-wrapper">
+                <input id="currentdesigner-1" class="column-checkbox" type="radio" name="currentdesigner" value="yes" aria-label="Are you currently working as a product designer - Yes">
+                <label for="currentdesigner-1" class="card-content-vertical">
+                    <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
+                    Yes, I have
+            </button>
+            <button class="column-btn-wrapper">
+                <input id="currentdesigner-2" class="column-checkbox" type="radio" name="currentdesigner" value="no" aria-label="Are you currently working as a product designer - No">
+                <label for="currentdesigner-2" class="card-content-vertical"> 
+                    <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
+                    No, I haven't
+            </button>
+        </div>
+    </div>
+
+        <!--- Pagination ---->
+        <div class="buttons-container">
+            <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+            <button class="button-next" role="button">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+        </div>
+</div>
+
+{% endblock %}

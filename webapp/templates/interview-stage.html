@@ -3,14 +3,33 @@
 
 <div class="body-content" role="main">
     <!---- Start page content ----->
+    <!---- Progress bar ----->
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li class="complete" aria-label="Article quiz - Step 1">
+            <a href="/current-designer" tabindex="0">Are you a designer?</a>
+        </li>
+        <li class="complete" aria-label="Article quiz - Step 2">
+            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2">What are you interested in?</a>
+        </li>
+        <li class="complete" aria-label="Article Quiz - Step 3">
+            <a href="/interview-status" tabindex="0" aria-label="Article Quiz - Step 3">Interviewing status</a>
+        </li>
+        <li class="enable" aria-label="Article Quiz - Step 4">
+            <a href="/interview-stage" tabindex="0" aria-label="Article Quiz - Step 4 - pending">Interview stage</a>
+        </li>
+    </ul>
+
+    <!---- Header ----->
     <div class="text-container">
-        <div class="section-title">
+        <h2 class="page-title">
             What stage of the process are you in?
-        </div>
+        </h2>
         <div class="section-subtext">
             Select all that apply.
         </div>
     </div>
+
+    <!---- Start options ------>
     <div class="quiz-container-goals" role="group">
         <button class="goal-btn-wrapper">
             <input id="stage-1" class="goal-checkbox" type="checkbox" name="stage" value="applying" aria-label="Select stage - Just applying; I haven't started interviewing yet">
@@ -18,7 +37,7 @@
                 <i class="ph-file-arrow-up-bold" style="font-size: 1.5em"></i>
                 <div class="card-content-text">
                     <h3 class="result-card-headline">Just applying</h3>
-                    <p class="results-card-description">I haven't started interviewing yet</p>
+                    <p class="card-description">I haven't started interviewing yet</p>
                 </div>
         </button>
         <button class="goal-btn-wrapper">
@@ -27,7 +46,7 @@
                 <i class="ph-flow-arrow-bold" style="font-size: 1.5em"></i>
                 <div class="card-content-text">
                     <h3 class="result-card-headline">Early stage</h3>
-                    <p class="results-card-description">Applying, speaking to recruiters</p>
+                    <p class="card-description">Applying, speaking to recruiters</p>
                 </div>
         </button>
         <button class="goal-btn-wrapper">
@@ -36,7 +55,7 @@
                 <i class="ph-strategy-bold" style="font-size: 1.5em"></i>
                 <div class="card-content-text">
                     <h3 class="result-card-headline">Mid stage</h3>
-                    <p class="results-card-description">Speaking to hiring managers, design exercise</p>
+                    <p class="card-description">Speaking to hiring managers, design exercise</p>
                 </div>
         </button>
         <button class="goal-btn-wrapper">
@@ -45,9 +64,14 @@
                 <i class="ph-polygon-bold" style="font-size: 1.5em"></i>
                 <div class="card-content-text">
                     <h3 class="result-card-headline">Late stage</h3>
-                    <p class="results-card-description">Portfolio presentation, team interviews</p>
+                    <p class="card-description">Portfolio presentation, team interviews</p>
                 </div>
         </button>
+        <!--- Pagination ---->
+        <div class="buttons-container">
+            <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+            <button class="button-next" role="button">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+        </div>
 </div>
 
 <div class="footer">

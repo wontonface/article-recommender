@@ -28,10 +28,10 @@ def currentdesigner_page() -> 'html':
 def yourgoals_page() -> 'html':
     return render_template('your-goals.html')
 
-## Remove ## when interview-status is ready
-## @app.route('/interview-status')
-## def interviewstatus_page -> 'html':
-##    return render_template('interview-status.html')
+
+@app.route('/interview-status')
+def interviewstatus_page() -> 'html':
+    return render_template('interview-status.html')
 
 
 @app.route('/interview-stage')

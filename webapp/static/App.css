@@ -81,7 +81,7 @@ h1 {
     box-sizing: border-box;
     color: var(--purple-100);
     cursor: pointer;
-    flex: 0 0 autp;
+    flex: 0 0 auto;
     font-family: 'Inter', sans-serif;
     font-size: 1.125rem;
     font-weight: 500;
@@ -201,6 +201,14 @@ h1 {
     flex-direction: row;
     align-items: center;
     gap: 16px;
+    border-radius: 20px;
+    padding: 32px 60px 32px 40px;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: -1px;
+    text-align: left;
+    color: #1c1c1c;
 }
 
 .card-content-text {
@@ -447,4 +455,146 @@ p.results-card-description {
 
 .page-wrapper {
     display: flex;
+}
+
+
+.goal-btn-wrapper {
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid #D4D4D4;
+    border-radius: 20px;
+    padding: 0;
+}
+
+.goal-btn-wrapper:hover {
+    border: 2px solid #ADADAD;
+    margin: -1px;
+    transition: 0.2s;
+}
+.goal-checkbox {
+    opacity: 0;
+    width: 0;
+    position: absolute;
+}
+
+
+/*
+input[type="checkbox"]:checked + label {
+    box-shadow: 0 0 0 3px hotpink;
+}
+*/
+
+.goal-checkbox:checked + label {
+    color: #0F006A;
+    border: 3px solid #6366F1;
+    background-color: #F5F3FF;
+    margin: -4px;
+    transition: 0.1s;
+}
+
+.quiz-container-goals {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-container {
+    background: #e3e3e3;
+    border-radius: 27px;
+    display: flex;
+    height: 12px;
+    margin: 3rem auto 0;
+    padding: 0;
+    max-width: 700px;
+    width: 100%;
+}
+
+.progress-container li {
+    align-self: center;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    height: 100%;
+    justify-content: space-between;
+    margin: -5px;
+    width: 26.2%;
+}
+
+.progress-container li.complete {
+    background: #6366f1;
+}
+
+.progress-container li a {
+    color: #727272;
+    font-size: 0;
+    opacity: 0;
+    height: 0;
+    display: inline-block;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.button-next {
+    background-color: var(--purple-500);
+    border: 1px solid transparent;
+    border-radius: 3rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding: .75rem 1.2 rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150px;
+    height: 56px;
+}
+
+.button-back {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 3rem;
+    box-sizing: border-box;
+    color: #737373;
+    cursor: pointer;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    padding: .75rem 1.2 rem;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 150px;
+    height: 56px;
 }

@@ -4,6 +4,20 @@
 
 
 <div class="body-content" role="main">
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li class="complete" aria-label="Article quiz - Step 1">
+            <a href="/current-designer" tabindex="0">Are you a designer?</a>
+        </li>
+        <li class="enable" aria-label="Article quiz - Step 2">
+            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2 - pending">What are you interested in?</a>
+        </li>
+        <li class="" aria-label="Article Quiz - Step 3">
+            <a href="/interview-status" tabindex="-1" aria-label="Article Quiz - Step 3 - incomplete link">Interviewing status</a>
+        </li>
+        <li class="" aria-label="Article Quiz - Step 4">
+            <a href="/interview-stage" tabindex="-1" aria-label="Article Quiz - Step 4 - incomplete link">Interview stage</a>
+        </li>
+    </ul>
     <div class="text-container">
         <div class="section-title">
             Which of the following are you interested in?
@@ -12,39 +26,33 @@
             Select all that apply.
         </div>
     </div>
-    <div class="body-options" role="list" aria-multiselectable="true">
-        <button class="button-card-horizontal" aria-selected="false">
-            <div class="card-content">
-                <i class="ph-line-segments" style="font-size: 2.5em"></i>
-                <div class="card-content-text">
-                    <div class="card-title">
-                        <div class="card-name">Improving my skills or learning new skills</div>
-                    </div>
-                </div>
-            </div>
+    <div class="quiz-container-goals" role="group">
+        <button class="goal-btn-wrapper">
+            <input id="goal-1" class="goal-checkbox" type="checkbox" name="goal" value="skills" aria-label="Select interest - improving my skills or learning new skills">
+            <label for ="goal-1" class="card-content">
+                <i class="ph-line-segments-bold" style="font-size: 1.5em"></i>
+                Improving my skills or learning new skills
         </button>
-        <div class="option-card-horizontal" role="listitem">
-            <div class="card-content">
-                <i class="ph-confetti" style="font-size: 2.5em"></i>
-                <div class="card-content-text">
-                    <div class="card-title">
-                        <div class="card-name">Finding a new job</div>
-                    </div>
-                </div>
-            </div>
-        </div>       
-        <div class="option-card-horizontal" role="listitem">
-            <div class="card-content">
-                <i class="ph-android-logo" style="font-size: 2.5em"></i>
-                <div class="card-content-text">
-                    <div class="card-title">
-                        <div class="card-name">Breaking into tech</div>
-                    </div>
-                </div>
-            </div>
-        </div>  
+        <button class="goal-btn-wrapper">
+            <input id="goal-2" class="goal-checkbox" type="checkbox" name="goal" value="newjob" aria-label="Select interest - finding a new job">
+            <label for ="goal-2" class="card-content">
+                <i class="ph-confetti-bold" style="font-size: 1.5em"></i>
+                Finding a new job
+        </button>
+        <button class="goal-btn-wrapper">
+            <input id="goal-3" class="goal-checkbox" type="checkbox" name="goal" value="tech" aria-label="Select interest - breaking into tech">
+            <label for ="goal-3" class="card-content">
+                <i class="ph-android-logo-bold" style="font-size: 1.5em"></i>
+                Breaking into tech
+        </button> 
+    </div>
+    <div class="buttons-container">
+        <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
     </div>
 </div>
+
+
 
 <div class="footer">
     <img src="static/Avatar-Circle-1.gif" width="100" height="100">
@@ -52,79 +60,6 @@
 </div>
 
 
-<script>
-    function clickAndSelect() {
-        const elem = document.getElementById('option-card-horizontal');
-        elem.style.background = "#f5f3ff";
-    }
-
-    function clickAndSelect2() {
-        const foo = document.querySelector('.option-card-horizontal');
-        const selectedCards = foo.classList;
-
-        foo.addEventListener('click', function()) {
-            const result = selectedCards.toggle('selected');
-
-            if (result) {
-                document.getElementById("option-card-horizontal").style.background = "#000000";
-            } else {
-            }
-        }
-    }
-
-    function clickAndSelect3() {
-        let selectedArray = Array.from(document.querySelectorAll(".option-card-horizontal")),
-            elements = [];
-
-        // Add child nodes to clickable elements
-        selectedArray.forEach((option-card-horizontal) => {
-            elements = elements.concat(Array.from(option-card-horizontal.children));
-        });
-
-        // Attach to mouse events
-        elements.forEach((element) => {
-            // click: Disable
-            element.addEventListener("click", (e) => e.preventDefault());
-
-            // mousedown: Log the timestamp
-            element.addEventListener("mousedown", (e) => {
-            let option-card-horizontal = e.target.closest(".option-card-horizontal");
-            option-card-horizontal.setAttribute("data-md", Date.now());
-            });
-
-            // mouseup: Determine whether to click
-            element.addEventListener("mouseup", (e) => {
-
-            let option-card-horizontal = e.target.classList.contains("option-card-horizontal")
-                ? e.target
-                : e.target.closest(".option-card-horizontal"),
-                then = option-card-horizontal.getAttribute("data-md"),
-                now = Date.now();
-
-            // Allow 200ms to distinguish click from non-click
-            if (now - then < 200) {
-                // Visit the link in the card
-                // Change 'a' to a class if you have multiple links
-                window.location = option-card-horizontal.querySelector("a").href;
-
-                // Remove for production
-                option-card-horizontal.classList.toggle("selected");
-                console.log(option-card-horizontal.querySelector("a").href);
-            }
-
-            // Clean up
-            option-card-horizontal.removeAttribute("data-md");
-            });
-        });
-        }
-
-    }
-
-
-    function clickandSelect4() {
-        document.getElementById("option-card-horizontal").classList.toggle("option-card-horizontal-selected");
-    }
-</script>
 
 
 {% endblock %}

@@ -12,30 +12,26 @@
 
 {%- endmacro %}
 
-<!----------------- 
+
 {% macro progressBar(step) -%}
 
-    {% for i in range(step) %}
-    <li class="complete">
-    {% endfor %}
-
     <ul id="progressBar" class="progress-container" role="navigation">
-        <li class="" aria-label="Article quiz - Step 1">
+        <li{% if step == 1 %} class="complete"{% endif %} aria-label="Article quiz - Step 1">
             <a href="/current-designer" tabindex="0">Are you a designer?</a>
         </li>
-        <li class="" aria-label="Article quiz - Step 2">
+        <li{% if step == 2 %} class="complete"{% endif %} aria-label="Article quiz - Step 2">
             <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2">What are you interested in?</a>
         </li>
-        <li class="" aria-label="Article Quiz - Step 3">
+        <li{% if step == 3 %} class="complete"{% endif %} aria-label="Article Quiz - Step 3">
             <a href="/interview-status" tabindex="0" aria-label="Article Quiz - Step 3">Interviewing status</a>
         </li>
-        <li class="" aria-label="Article Quiz - Step 4">
+        <li{% if step == 4 %} class="complete"{% endif %} aria-label="Article Quiz - Step 4">
             <a href="/interview-stage" tabindex="0" aria-label="Article Quiz - Step 4 - pending">Interview stage</a>
         </li>
     </ul>
 
 
-{%- endmacro %} -------->
+{%- endmacro %} 
 
 {% macro footer() -%}
 

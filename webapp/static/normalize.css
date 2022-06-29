@@ -22,4 +22,25 @@ a {
     text-decoration: none;
     font-weight: 700;
     color: #6C55F7;
+    position: relative;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #E6E1FF;
+    bottom: -2px;
+    left: 0;
+    z-index: -1;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .25s ease-in-out;
+  }
+
+a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }

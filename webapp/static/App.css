@@ -118,13 +118,22 @@ p.page-subtext {
     gap: 24px;
 }
 
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+}
+
 h1 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Obviously', sans-serif;
     color: var(--neutral-800);
     font-size: 64px;
     line-height: 64px;
     font-weight: 700;
+    font-style: normal;
     margin: 0;
+    text-align: center;
 }
 
 .button-main {
@@ -312,6 +321,43 @@ p.footer-text {
     color: #363636;
 }
 
+.homepage-marquee {
+    position: relative;
+    width: 1000px;
+    margin: 60px 0;
+    --offset: 20vw;
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+}
+
+
+.articles-marquee-container {
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: width .15s;
+}
+
+.articles-marquee-wrapper {
+    display: flex;
+    flex-wrap: no-wrap;
+    gap: 16px;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 5s linear infinite;
+    animation-play-state: running;
+
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
+
 .result-card {
     box-sizing: border-box;
     background-color: #ffffff;
@@ -346,6 +392,7 @@ p.footer-text {
     opacity: 0;
     -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
 }
 
 .result-card:hover {
@@ -387,6 +434,7 @@ p.footer-text {
     outline: 0;
     background: transparent;
     object-fit: contain;
+    width: 100%;
 }
 
 .ds-image {
@@ -448,6 +496,7 @@ p.footer-text {
     justify-content: center;
     gap: 16px;
 }
+
 
 .results-container img {
     max-width: 100%;

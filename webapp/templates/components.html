@@ -12,12 +12,46 @@
 
 {%- endmacro %}
 
+<!----------------- 
+{% macro progressBar(step) -%}
+
+    {% for i in range(step) %}
+    <li class="complete">
+    {% endfor %}
+
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li class="" aria-label="Article quiz - Step 1">
+            <a href="/current-designer" tabindex="0">Are you a designer?</a>
+        </li>
+        <li class="" aria-label="Article quiz - Step 2">
+            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2">What are you interested in?</a>
+        </li>
+        <li class="" aria-label="Article Quiz - Step 3">
+            <a href="/interview-status" tabindex="0" aria-label="Article Quiz - Step 3">Interviewing status</a>
+        </li>
+        <li class="" aria-label="Article Quiz - Step 4">
+            <a href="/interview-stage" tabindex="0" aria-label="Article Quiz - Step 4 - pending">Interview stage</a>
+        </li>
+    </ul>
+
+
+{%- endmacro %} -------->
 
 {% macro footer() -%}
 
 <div class="footer">
     <img src="static/Avatar-2.png">
     <p class="footer-text">Built and designed by <a class="footer-link" href="https://nicoleiliana.com">Nicole Garcia</a></p>
+</div>
+
+{%- endmacro %}
+
+
+{% macro pagination() -%}
+
+<div class="buttons-container">
+    <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+    <button class="button-next" role="button">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
 </div>
 
 {%- endmacro %}

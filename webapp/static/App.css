@@ -78,7 +78,6 @@ a.navigation-learnmore {
     color: var(--neutral-800);
     font-size: 48px;
     font-weight: 700;
-    margin: 0;
 }
 
 h2.page-title {
@@ -115,7 +114,8 @@ p.page-subtext {
     display: flex;
     flex-direction: column;
     margin-top: 24px;
-    gap: 24px;
+    margin-bottom: 24px;
+    gap: 16px;
 }
 
 .landing-container {
@@ -660,6 +660,7 @@ p.card-description {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-top: 32px;
 }
 
 .button-next {

@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from articleRecommender import inputStorage, aboutYou, yourGoals, jobHuntingStatus 
 ## from flask_restful import Api, Resource, reqparse
 ## from flask_cors import CORS #comment this on deployment
 ## from api.HelloApiHandler import HelloApiHandler
@@ -9,15 +10,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def entry_page() -> 'html':
+    inputStorage()
     return render_template('entry.html', the_title='Welcome to the article recommender')
 
 @app.route('/test')
 def hello() -> str:
     return 'Hello world from Flask'
 
-@app.route('/current-designer')
+@app.route('/current-designer', methods=['GET', 'POST'])
 def currentdesigner_page() -> 'html':
     return render_template('your-role.html')
+    isDesignerInput = request.form['currentdesigner']
 
 
 @app.route('/aspiring-designer')
@@ -40,6 +43,8 @@ def interviewstage_page() -> 'html':
 
 @app.route ('/results2')
 def results_page() -> 'html':
+    aboutYou(isDesignerInput)
+
     return render_template('results2.html')
 
 

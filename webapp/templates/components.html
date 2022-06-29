@@ -36,18 +36,18 @@
 {% macro footer() -%}
 
 <div class="footer">
-    <img src="static/Avatar-2.png">
+    <img src="static/Avatar-3.png" width="45" height="45">
     <p class="footer-text">Built and designed by <a class="footer-link" href="https://nicoleiliana.com">Nicole Garcia</a></p>
 </div>
 
 {%- endmacro %}
 
 
-{% macro pagination() -%}
+{% macro pagination(prevpage, nextpage) -%}
 
 <div class="buttons-container">
-    <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
-    <button class="button-next" role="button">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    <button class="button-back" role="button" onclick="window.location.href='/{{ prevpage }}';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+    <button class="button-next" role="button" onclick="window.location.href='/{{ nextpage }}';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
 </div>
 
 {%- endmacro %}

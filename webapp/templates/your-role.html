@@ -15,20 +15,26 @@
     <div class="body-options">
         <div class="quiz-container-column" role="group">
             <button class="column-btn-wrapper">
-                <input id="currentdesigner-1" class="column-checkbox" type="radio" name="currentdesigner" value="yes" aria-label="Are you currently working as a product designer - Yes">
+                <input id="currentdesigner-1" class="column-checkbox" type="radio" name="currentdesigner" value="yes" method="post" aria-label="Are you currently working as a product designer - Yes">
                 <label for="currentdesigner-1" class="card-content-vertical">
                     <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
                     Yes, I am
             </button>
             <button class="column-btn-wrapper">
-                <input id="currentdesigner-2" class="column-checkbox" type="radio" name="currentdesigner" value="no" aria-label="Are you currently working as a product designer - No">
+                <input id="currentdesigner-2" class="column-checkbox" type="radio" name="currentdesigner" value="no" method="post" aria-label="Are you currently working as a product designer - No">
                 <label for="currentdesigner-2" class="card-content-vertical"> 
                     <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
                     No, I'm not
             </button>
         </div>
     </div>
-    {{ components.pagination('', 'aspiring-designer') }}
+
+    {% if request.form.get('currentdesigner') == 'no' %}
+        {{ components.pagination('', 'aspiring-designer') }}
+    {% else %}
+        {{ components.pagination('', 'your-goals') }}
+    {% endif %}
+
     {{ components.footer() }}
 </div>
 

@@ -21,6 +21,10 @@ def hello() -> str:
 def currentdesigner_page() -> 'html':
     return render_template('your-role.html')
     isDesignerInput = request.form['currentdesigner']
+    ## if isDesignerInput == 'yes':
+        ## Take user to your-goals
+    ## else:
+        ## Take user to aspiring-designer
 
 
 @app.route('/aspiring-designer')

@@ -27,7 +27,7 @@ def inputStorage():
 # First set of questions: About You
 
 def aboutYou(isDesignerInput):
-    if isDesignerValue == 'yes':
+    if isDesignerInput == 'yes':
         dict[1]['isDesigner'] += 1
     else:
         aspiringDesignerValue = input("Are you interested in becoming a product designer? (Y or N) ")

@@ -364,6 +364,7 @@ p.footer-text {
     display: flex;
     flex-direction: column;
     width: 274px;
+    height: fit-content;
     position: relative;
     align-items: center;
     box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -541,7 +542,7 @@ h3.result-card-headline {
     align-items: flex-start;
     padding: 8px 12px;
     gap: 10px;
-    width: 95px;
+    width: max-content;
     height: 28px;
     background: transparent;
     border: 1px solid #737373;

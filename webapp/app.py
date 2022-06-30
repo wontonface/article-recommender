@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from articleRecommender import inputStorage, aboutYou, yourGoals, jobHuntingStatus 
 ## from flask_restful import Api, Resource, reqparse
 ## from flask_cors import CORS #comment this on deployment
@@ -7,6 +7,9 @@ from articleRecommender import inputStorage, aboutYou, yourGoals, jobHuntingStat
 ## from Landing import Landing
 
 app = Flask(__name__)
+
+## @app.before_request()
+## create a function to capture the user's last visited page
 
 @app.route('/')
 def entry_page() -> 'html':
@@ -20,11 +23,12 @@ def hello() -> str:
 @app.route('/current-designer', methods=['GET', 'POST'])
 def currentdesigner_page() -> 'html':
     return render_template('your-role.html')
-    isDesignerInput = request.form['currentdesigner']
-    ## if isDesignerInput == 'yes':
-        ## Take user to your-goals
-    ## else:
-        ## Take user to aspiring-designer
+    if request.method == 'POST':
+        isDesignerInput = request.form.get['currentdesigner']
+        if isDesignerInput == 'yes':
+            return redirect('/your-goals')
+        else:
+            return redirect('/aspiring-designer')
 
 
 @app.route('/aspiring-designer')
@@ -51,6 +55,10 @@ def results_page() -> 'html':
 
     return render_template('results2.html')
 
+
+## @app.errorhandler(404)
+## def not_found():
+##  return make_response(render_template("404.html"), 404)
 
 # @app.route('/entry')
 # def entry_page() -> 'html':

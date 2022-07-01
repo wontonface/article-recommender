@@ -32,27 +32,33 @@
         </div>
     </div>
     <div class="quiz-container-goals" role="group">
-        <button class="goal-btn-wrapper">
-            <input id="goal-1" class="goal-checkbox" type="checkbox" name="goal" value="skills" aria-label="Select interest - improving my skills or learning new skills">
-            <label for ="goal-1" class="card-content">
-                <i class="ph-line-segments-bold" style="font-size: 1.5em"></i>
-                Improving my skills or learning new skills
-        </button>
-        <button class="goal-btn-wrapper">
-            <input id="goal-2" class="goal-checkbox" type="checkbox" name="goal" value="newjob" aria-label="Select interest - finding a new job">
-            <label for ="goal-2" class="card-content">
-                <i class="ph-confetti-bold" style="font-size: 1.5em"></i>
-                Finding a new job
-        </button>
-        <button class="goal-btn-wrapper">
-            <input id="goal-3" class="goal-checkbox" type="checkbox" name="goal" value="tech" aria-label="Select interest - breaking into tech">
-            <label for ="goal-3" class="card-content">
-                <i class="ph-android-logo-bold" style="font-size: 1.5em"></i>
-                Breaking into tech
-        </button> 
+        <form id="question-1" method="POST" action="/add2">
+            <div class="goal-btn-wrapper">
+                <input id="goal-1" class="goal-checkbox" type="checkbox" name="goal" value="skills" method="POST" aria-label="Select interest - improving my skills or learning new skills">
+                <label for ="goal-1" class="card-content">
+                    <i class="ph-line-segments-bold" style="font-size: 1.5em"></i>
+                    Improving my skills or learning new skills
+            </div>
+            <div class="goal-btn-wrapper">
+                <input id="goal-2" class="goal-checkbox" type="checkbox" name="goal" value="newjob" method="POST" aria-label="Select interest - finding a new job">
+                <label for ="goal-2" class="card-content">
+                    <i class="ph-confetti-bold" style="font-size: 1.5em"></i>
+                    Finding a new job
+            </div>
+            <div class="goal-btn-wrapper">
+                <input id="goal-3" class="goal-checkbox" type="checkbox" name="goal" value="tech" method="POST" aria-label="Select interest - breaking into tech">
+                <label for ="goal-3" class="card-content">
+                    <i class="ph-android-logo-bold" style="font-size: 1.5em"></i>
+                    Breaking into tech
+            </div> 
+        </form>
     </div>
     <!--- Pagination ---->
-    {{ components.pagination() }}
+    <div class="buttons-container">
+        <button class="button-back" role="button" onclick="window.location.href='/add';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-1" value="submit" method="POST" onclick="window.location.href='/add2';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
+
     {{ components.footer() }}
 </div>
 

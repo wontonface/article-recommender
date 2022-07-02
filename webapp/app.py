@@ -27,6 +27,8 @@ dict = {
         }
     }
 
+mylist = []
+
 def storeValue(i, key):
     dict[i][key] += 1
 
@@ -38,9 +40,13 @@ def entry_page() -> 'html':
     inputStorage()
     return render_template('entry.html', the_title='Welcome to the article recommender')
 
-@app.route('/test')
+@app.route('/t')
 def hello() -> str:
     return format(dict)
+
+@app.route('/t2')
+def answers2() -> str:
+    return format(mylist)
 
 @app.route('/current-designer', methods=['GET', 'POST'])
 def currentdesigner_page() -> 'html':
@@ -67,38 +73,44 @@ def yourgoals_page() -> 'html':
 @app.route('/add2', methods=['GET', 'POST'])
 def add2() -> 'html':
     if request.method == 'POST':
-        if 'skills' or 'newjob' or 'tech' in request.form.get('goal'):
-            if 'skills' not in request.form.get('goal'):
-                if 'newjob' and 'tech' in request.form.get('goal'):
-                    storeValue(2, 'findingNewJob')
+        if 'skills' or 'newjob' or 'tech' in request.form.getlist('goal'):
+            goalsResponse = request.form.getlist('goal')
+            if len(goalsResponse) == 3:
+                storeValue(2, 'improvingSkills')
+                storeValue(2, 'findingNewJob')
+                storeValue(2, 'breakingIn')
+                return redirect('/interview-status')
+            elif len(goalsResponse) == 2:
+                if 'skills' not in goalsResponse:
                     storeValue(2, 'breakingIn')
-                    return redirect('/interview-status')
-                if 'newjob' in request.form.get('goal') and 'tech' not in request.form.get('goal'):
                     storeValue(2, 'findingNewJob')
                     return redirect('/interview-status')
+                elif 'newjob' not in goalsResponse:
+                    storeValue(2, 'improvingSkills')
+                    storeValue(2, 'breakingIn')
+                    return redirect('/results2')
                 else:
-                    storeValue(2, 'breakingIn')
-                    return redirect('/interview-status')
-            else: # if 'skills' in request.form.get('goal')
-                if 'newjob' and 'tech' and 'skills' in request.form.get('goal'):
+                    storeValue(2, 'improvingSkills')
                     storeValue(2, 'findingNewJob')
-                    storeValue(2, 'breakingIn')
-                    storeValue(2, 'improvingSkills')
                     return redirect('/interview-status')
-                elif 'newjob' and 'skills' in request.form.get('goal') and 'tech' not in request.form.get('goal'):
-                    storeValue(2, 'findingNewJob')
+            else:
+                if 'skills' not in goalsResponse:
+                    if 'newjob' not in goalsResponse:
+                        storeValue(2, 'breakingIn')
+                        return redirect('/interview-status')
+                    elif 'tech' not in goalsResponse:
+                        storeValue(2, 'findingNewJob')
+                        return redirect('/interview-status')
+                else:
                     storeValue(2, 'improvingSkills')
-                    return redirect('/interview-status')
-                else: #if 'tech' and 'skills' in request.form.get('goal')
-                    storeValue(2, 'improvingSkills')
-                    storeValue('breakingIn')
-                return redirect('/results2')
+                    return redirect('/results2')
         elif request.form.get('aspiringdesigner') == 'yes':
             storeValue(1, 'aspiringDesigner')
             return redirect('/your-goals')
         elif request.form.get('aspiringdesigner') == 'no':
             return redirect('/your-goals')
     return redirect('/results2')
+
 
 
     if yourGoalsValue == 'A':

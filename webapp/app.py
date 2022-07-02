@@ -111,17 +111,6 @@ def add2() -> 'html':
             return redirect('/your-goals')
     return redirect('/results2')
 
-
-
-    if yourGoalsValue == 'A':
-        dict[2]['improvingSkills'] += 1
-    else:
-        if yourGoalsValue == 'B':
-            dict[2]['findingNewJob'] += 1
-        else:
-            dict[2]['breakingIn'] += 1
-
-
 @app.route('/interview-status')
 def interviewstatus_page() -> 'html':
     return render_template('interview-status.html')

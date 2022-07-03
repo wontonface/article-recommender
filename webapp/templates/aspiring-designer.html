@@ -34,7 +34,7 @@
 
     <!---- Start options ------>
     <div class="body-options">
-        <form id="question-2" method="POST" action="/add2">
+        <form id="question-2" method="POST" action="/add1">
             <div class="quiz-container-column" role="group">
                 <div class="column-btn-wrapper">
                     <input id="currentdesigner-1" class="column-checkbox" type="radio" name="aspiringdesigner" value="yes" method="POST" aria-label="Are you interested in becoming a product designer - Yes">
@@ -54,7 +54,7 @@
 
     <div class="buttons-container">
         <button class="button-back" role="button" onclick="window.location.href='/current-designer';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
-        <button class="button-next" role="button" type="submit" form="question-2" value="submit" method="POST" onclick="window.location.href='/your-goals';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+        <button class="button-next" role="button" type="submit" form="question-2" value="submit" method="POST" onclick="window.location.href='/add1';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
     </div>
     {{ components.footer() }}
 </div>

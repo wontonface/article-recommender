@@ -58,13 +58,21 @@ def add() -> 'html':
         if request.form.get('currentdesigner') == 'yes':
             storeValue(1, 'isDesigner')
         else:
-            storeValue(1, 'aspiringDesigner')
             return redirect('/aspiring-designer')
     return redirect('/your-goals')
 
 @app.route('/aspiring-designer', methods=['GET', 'POST'])
 def aspiringdesigner_page() -> 'html':
     return render_template('aspiring-designer.html')
+
+@app.route('/add1', methods=['GET', 'POST'])
+def add1() -> 'html':
+    if request.method == 'POST':
+        if request.form.get('aspiringdesigner') == 'yes':
+            storeValue(1, 'aspiringDesigner')
+            return redirect('/your-goals')
+        else:
+            return redirect('/your-goals')
 
 @app.route('/your-goals', methods=['GET', 'POST'])
 def yourgoals_page() -> 'html':
@@ -104,11 +112,6 @@ def add2() -> 'html':
                 else:
                     storeValue(2, 'improvingSkills')
                     return redirect('/results2')
-        elif request.form.get('aspiringdesigner') == 'yes':
-            storeValue(1, 'aspiringDesigner')
-            return redirect('/your-goals')
-        elif request.form.get('aspiringdesigner') == 'no':
-            return redirect('/your-goals')
     return redirect('/results2')
 
 @app.route('/interview-status')

@@ -118,6 +118,20 @@ def add2() -> 'html':
 def interviewstatus_page() -> 'html':
     return render_template('interview-status.html')
 
+@app.route('/add4', methods=['GET', 'POST'])
+def add4() -> 'html':
+    if request.method == 'POST':
+        if request.form.get('interviewstatus') == 'yes':
+            storeValue(3, 'activelyApplying')
+            return redirect('/interview-stage')
+        else:
+            return redirect('/results2')
+
+
+@app.route('/add5', methods=['GET', 'POST'])
+def add5() -> 'html:'
+    pass
+
 
 @app.route('/interview-stage')
 def interviewstage_page() -> 'html':

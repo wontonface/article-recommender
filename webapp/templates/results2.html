@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% import 'components.html' as components %}
+{% import 'results-logic.html' as logic %}
 {% block body %}
 
 {{ components.navigation() }}
@@ -30,61 +31,9 @@
     </div>
     
     <div class="results-container">
-        <section class="result-card">
-            <div class="result-card-content">
-                <img class="img-wrapper" src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F00072b83-c6c5-4152-b663-16214cd0e691_1953x1476.png" alt="example">
-                <div class="result-card-text">
-                    <h3 class="result-card-headline">Crafting your elevator pitch as a product designer  <span class="time-to-read">7 min read</span></h3>
-                    <p class="results-card-description">How to concisely explain your background and qualifications by hitting a few key points.</p>
-                    <div class="article-tag-container">
-                        <div class="article-tag">
-                            Interviewing
-                        </div>
-                        <div class="article-tag">
-                            Job hunting
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-            
-        </section>
-        <section class="result-card">
-            <div class="result-card-content">
-                <img class="img-wrapper" src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F00072b83-c6c5-4152-b663-16214cd0e691_1953x1476.png" alt="example">
-                <div class="result-card-text">
-                    <h3 class="result-card-headline">Crafting your elevator pitch as a product designer  <span class="time-to-read">7 min read</span></h3>
-                    <p class="results-card-description">How to concisely explain your background and qualifications by hitting a few key points.</p>
-                    <div class="article-tag-container">
-                        <div class="article-tag">
-                            Interviewing
-                        </div>
-                        <div class="article-tag">
-                            Job hunting
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </section>
-        <section class="result-card">
-            <div class="result-card-content">
-                <img class="img-wrapper" src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F00072b83-c6c5-4152-b663-16214cd0e691_1953x1476.png" alt="example">
-                <div class="result-card-text">
-                    <h3 class="result-card-headline">Crafting your elevator pitch as a product designer  <span class="time-to-read">7 min read</span></h3>
-                    <p class="results-card-description">How to concisely explain your background and qualifications by hitting a few key points.</p>
-                    <div class="article-tag-container">
-                        <div class="article-tag">
-                            Interviewing
-                        </div>
-                        <div class="article-tag">
-                            Job hunting
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </section>
+        {% if {{ results_aspiringRole }} == 'nonDesigner' %}
+            {{ logic.results_nonDesigner() }}
+        {% endif %}
     </div>
     
     <button class="button-main" role="button">Restart</button>

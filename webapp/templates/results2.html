@@ -31,9 +31,10 @@
     </div>
     
     <div class="results-container">
-        {% if {{ results_aspiringRole }} == 'nonDesigner' %}
+        {% if results_aspiringRole == 'nonDesigner' %}
             {{ logic.results_nonDesigner() }}
-        {% endif %}
+        {% endif %} 
+        
     </div>
     
     <button class="button-main" role="button">Restart</button>

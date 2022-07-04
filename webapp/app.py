@@ -53,9 +53,9 @@ def storeValue(i, key):
 def aspiringRole_results(): # Check for inverse
     if dict[1]['aspiringNonDesigner'] == 1:
         results['aspiringRole']['nonDesigner'] = 'TRUE'
-        aspiring_role = 'nonDesigner'
+        return 'nonDesigner'
     else:
-        aspiring_role = 'designer'
+        return 'designer'
 
 def improvingSkills_results(): # Check for inverse
     if dict[2]['improvingSkills'] == 0:

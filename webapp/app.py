@@ -60,10 +60,12 @@ def aspiringRole_results(): # Check for inverse
 def improvingSkills_results(): # Check for inverse
     if dict[2]['improvingSkills'] == 0:
         results['goals']['improvingSkills'] = 'FALSE'
+        return 'nonImprovingSkills'
 
 def jobHunting_results():
-    if dict[3]['activelyApplying'] == 0: # Check for inverse
+    if dict[3]['activelyApplying'] == 0: # Check for inverse (not in specific stage)
         results['jobHunt']['all'] = 'TRUE'
+        return 'allJobHunting'
     else:
         if sum(dict[4].values()) == 3:
             if dict[4]['interviewNoStage'] == 1:
@@ -316,10 +318,12 @@ def add6() -> 'html':
 @app.route ('/results2')
 def results_page() -> 'html':
     aspiring_role = aspiringRole_results()
-    improvingSkills_results()
-    jobHunting_results()
+    improving_skills = improvingSkills_results()
+    job_hunting = jobHunting_results()
     return render_template('results2.html',
-                            results_aspiringRole=aspiring_role,)
+                            results_aspiringRole=aspiring_role,
+                            results_improvingSkills=improving_skills,
+                            results_jobHunting=job_hunting,)
 
 
 ## @app.errorhandler(404)

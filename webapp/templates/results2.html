@@ -33,8 +33,15 @@
     <div class="results-container">
         {% if results_aspiringRole == 'nonDesigner' %}
             {{ logic.results_nonDesigner() }}
-        {% endif %} 
-        
+        {% endif %}
+        {% if results_improvingSkills == 'nonImprovingSkills' %} 
+            {{ logic.results_nonImprovingSkills() }}
+        {% else %}
+            {{ logic.results_improvingSkills() }}
+        {% endif %}
+        {% if results_jobHunting == 'allJobHunting' %}
+            {{ logic.results_allJobHunting() }}
+        {% endif %}
     </div>
     
     <button class="button-main" role="button">Restart</button>

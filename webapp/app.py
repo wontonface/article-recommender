@@ -1,10 +1,6 @@
 from flask import Flask, render_template, request, redirect
-from articleRecommender import inputStorage, aboutYou, yourGoals, jobHuntingStatus 
-## from flask_restful import Api, Resource, reqparse
-## from flask_cors import CORS #comment this on deployment
-## from api.HelloApiHandler import HelloApiHandler
 
-## from Landing import Landing
+
 
 app = Flask(__name__)
 
@@ -37,7 +33,6 @@ def storeValue(i, key):
 
 @app.route('/')
 def entry_page() -> 'html':
-    inputStorage()
     return render_template('entry.html', the_title='Welcome to the article recommender')
 
 @app.route('/t')
@@ -129,8 +124,90 @@ def add4() -> 'html':
 
 
 @app.route('/add5', methods=['GET', 'POST'])
-def add5() -> 'html:'
-    pass
+def add5() -> 'html':
+    if request.method == 'POST':
+        jobHuntResponse = request.form.getlist('stage')
+        if len(jobHuntResponse) == 4:
+            storeValue(3, 'interviewNoStage')
+            storeValue(3, 'interviewEarlyStage')
+            storeValue(3, 'interviewMidStage')
+            storeValue(3, 'interviewLateStage')
+            return redirect('/results2')
+        elif len(jobHuntResponse) == 3:
+            if 'applying' not in jobHuntResponse:
+                storeValue(3, 'interviewEarlyStage')
+                storeValue(3, 'interviewMidStage')
+                storeValue(3, 'interviewLateStage')
+                return redirect('/results2')
+            elif 'early' not in jobHuntResponse:
+                storeValue(3, 'interviewNoStage')
+                storeValue(3, 'interviewMidStage')
+                storeValue(3, 'interviewLateStage')
+                return redirect('/results2')
+            elif 'mid' not in jobHuntResponse:
+                storeValue(3, 'interviewNoStage')
+                storeValue(3, 'interviewEarlyStage')
+                storeValue(3, 'interviewLateStage')
+                return redirect('/results2')
+            else: # if late not in
+                storeValue(3, 'interviewNoStage')
+                storeValue(3, 'interviewEarlyStage')
+                storeValue(3, 'interviewMidStage')
+                return redirect('/results2')
+        elif len(jobHuntResponse) == 2:
+            if 'applying' not in jobHuntResponse:
+                if 'early' not in jobHuntResponse:
+                    storeValue(3, 'interviewMidStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                elif 'mid' not in jobHuntResponse:
+                    storeValue(3, 'interviewEarlyStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                else: # if late not in
+                    storeValue(3, 'interviewEarlyStage')
+                    storeValue(3, 'interviewMidStage')
+                    return redirect('/results2')
+            elif 'early' not in jobHuntResponse:
+                if 'applying' not in jobHuntResponse:
+                    storeValue(3, 'interviewMidStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                elif 'mid' not in jobHuntResponse:
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                else: # if late not in
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewMidStage')
+                    return redirect('/results2')
+            elif 'mid' not in jobHuntResponse:
+                if 'applying' not in jobHuntResponse:
+                    storeValue(3, 'interviewEarlyStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                elif 'early' not in jobHuntResponse:
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewLateStage')
+                    return redirect('/results2')
+                else: # if late not in
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewEarlyStage')
+                    return redirect('/results2')
+            else: # if late not in
+                if 'applying' not in jobHuntResponse:
+                    storeValue(3, 'interviewEarlyStage')
+                    storeValue(3, 'interviewMidStage')
+                    return redirect('/results2')
+                elif 'early' not in jobHuntResponse:
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewMidStage')
+                    return redirect('/results2')
+                else: # if mid not in  
+                    storeValue(3, 'interviewNoStage')
+                    storeValue(3, 'interviewEarlyStage')
+                    return redirect('/results2')
+        return redirect('/results2')
 
 
 @app.route('/interview-stage')

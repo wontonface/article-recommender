@@ -31,13 +31,14 @@
             Select all that apply.
         </div>
     </div>
-    <div class="quiz-container-goals" role="group">
-        <form id="question-1" method="POST" action="/add2">
+    <form id="question-1" method="POST" action="/add2">
+        <div class="quiz-container-goals" role="group">
+
             <div class="goal-btn-wrapper">
                 <input id="goal-1" class="goal-checkbox" type="checkbox" name="goal" value="skills" method="POST" aria-label="Select interest - improving my skills or learning new skills">
                 <label for ="goal-1" class="card-content">
                     <i class="ph-line-segments-bold" style="font-size: 1.5em"></i>
-                    Improving my skills or learning new skills
+                    Improving my skills or learning new ones
             </div>
             <div class="goal-btn-wrapper">
                 <input id="goal-2" class="goal-checkbox" type="checkbox" name="goal" value="newjob" method="POST" aria-label="Select interest - finding a new job">
@@ -51,8 +52,8 @@
                     <i class="ph-android-logo-bold" style="font-size: 1.5em"></i>
                     Breaking into tech
             </div> 
-        </form>
-    </div>
+        </div>
+    </form>
     <!--- Pagination ---->
     <div class="buttons-container">
         <button class="button-back" role="button" onclick="window.location.href='/add';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>

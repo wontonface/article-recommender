@@ -73,11 +73,13 @@ a.navigation-learnmore {
     max-width: 600px;
 }
 
+
 .section-title {
     font-family: 'Inter', sans-serif;
     color: var(--neutral-800);
     font-size: 48px;
     font-weight: 700;
+    margin: 0;
 }
 
 h2.page-title {
@@ -114,7 +116,7 @@ p.page-subtext {
     display: flex;
     flex-direction: column;
     margin-top: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     gap: 16px;
 }
 
@@ -122,7 +124,9 @@ p.page-subtext {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-top: 48px;
     justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -263,7 +267,7 @@ h1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     border-radius: 20px;
     padding: 32px 60px 32px 40px;
     font-size: 24px;
@@ -280,7 +284,7 @@ h1 {
     align-items: center;
     gap: 16px;
     border-radius: 20px;
-    padding: 32px;
+    padding: 32px 74px;
     font-size: 24px;
     font-weight: 500;
     cursor: pointer;
@@ -324,26 +328,25 @@ p.footer-text {
 .homepage-marquee {
     position: relative;
     width: 1000px;
+    overflow: hidden;
     margin: 60px 0;
+    padding: 20px;
     --offset: 20vw;
     --move-initial: calc(-25% + var(--offset));
     --move-final: calc(-50% + var(--offset));
 }
 
-
-.articles-marquee-container {
-    max-width: none;
-    width: 100%;
-    box-sizing: border-box;
-    transition: width .15s;
+.homepage-marquee:hover .articles-marquee-wrapper {
+    animation-play-state: paused;
 }
+
 
 .articles-marquee-wrapper {
     display: flex;
     flex-wrap: no-wrap;
     gap: 16px;
     transform: translate3d(var(--move-initial), 0, 0);
-    animation: marquee 5s linear infinite;
+    animation: marquee 10s linear infinite;
     animation-play-state: running;
 
 }
@@ -493,6 +496,7 @@ p.footer-text {
 .results-container {
     display: flex;
     flex-wrap: wrap;
+    max-width: 900px;
     align-items: center;
     justify-content: center;
     gap: 16px;
@@ -589,6 +593,7 @@ p.card-description {
     border: 1px solid #D4D4D4;
     border-radius: 20px;
     padding: 0;
+    width: 100%;
 }
 
 .goal-btn-wrapper:hover {

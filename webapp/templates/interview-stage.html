@@ -5,7 +5,6 @@
 {{ components.navigation() }}
 
 <div class="body-content" role="main">
-    <!---- Start page content ----->
     <!---- Progress bar ----->
     {{ components.progressBar(5) }}
 
@@ -18,10 +17,9 @@
             Select all that apply.
         </div>
     </div>
-
     <!---- Start options ------>
-    <form id="question-6" method="POST" action="/add5">
-        <div class="quiz-container-goals" role="group">
+    <div class="quiz-container-goals" role="group">
+        <form id="question-6" class="quiz-container-goals" method="POST" action="/add5">
             <div class="goal-btn-wrapper">
                 <input id="stage-1" class="goal-checkbox" type="checkbox" name="stage" value="applying" method="POST" aria-label="Select stage - Just applying; I haven't started interviewing yet">
                 <label for="stage-1" class="card-content">
@@ -58,13 +56,13 @@
                         <p class="card-description">Portfolio presentation, team interviews</p>
                     </div>
             </div>
-        </div>
-    </form>
-        <!--- Pagination ---->
-        <div class="buttons-container">
-            <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
-            <button class="button-next" role="button" type="submit" form="question-6" value="submit" method="POST" onclick="window.location.href='/add5';">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
-        </div>
+        </form>
+    </div>
+    <!--- Pagination ---->
+    <div class="buttons-container">
+        <button class="button-back" role="button"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-6" value="submit" method="POST" onclick="window.location.href='/add5';">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
     {{ components.footer() }}
 </div>
 

@@ -71,54 +71,68 @@ def jobHunting_results():
             if dict[4]['interviewNoStage'] == 1:
                 if dict[4]['interviewEarlyStage'] == 1:
                     if dict[4]['interviewMidStage'] == 1:
-                        results['jobHunt']['lateStage'] = 'FALSE'
+                        results['jobHunt']['lateStage'] = 'FALSE' # None, early, Mid
+                        return 'earlyMidJobHunting'
                     elif dict[4]['interviewLateStage'] == 1:
-                        results['jobHunt']['midStage'] = 'FALSE'
+                        results['jobHunt']['midStage'] = 'FALSE' # None, early, Late
+                        return 'allJobHunting'
                 elif dict[4]['interviewMidStage'] == 1:
                     if dict[4]['interviewLateStage'] == 1:
-                        results['jobHunt']['earlyStage'] = 'FALSE'
+                        results['jobHunt']['earlyStage'] = 'FALSE' # No, mid, Late
+                        return 'midLateJobHunting'
             elif dict[4]['interviewEarlyStage'] == 1:
                 if dict[4]['interviewMidStage'] == 1:
                     results['jobHunt']['noStage'] = 'FALSE' # Early, mid, late
+                    return 'allJobHunting'
         elif sum(dict[4].values()) == 2:
             if dict[4]['interviewNoStage'] == 1:
                 if dict[4]['interviewEarlyStage'] == 1: # None, early
                     results['jobHunt']['midStage'] = 'FALSE'
                     results['jobHunt']['lateStage'] = 'FALSE'
+                    return 'earlyJobHunting'
                 elif dict[4]['interviewMidStage'] == 1: # None, mid
                     results['jobHunt']['earlyStage'] = 'FALSE'
                     results['jobHunt']['lateStage'] = 'FALSE'
+                    return 'earlyMidJobHunting'
                 else: # None, late
                     results['jobHunt']['earlyStage'] = 'FALSE'
                     results['jobHunt']['midStage'] = 'FALSE'
+                    return 'lateJobHunting'
             elif dict[4]['interviewEarlyStage'] == 1:
                 if dict[4]['interviewMidStage'] == 1: # Early, mid
                     results['jobHunt']['noStage'] = 'FALSE'
                     results['jobHunt']['lateStage'] = 'FALSE'
+                    return 'earlyMidJobHunting'
                 else: # Early, late
                     results['jobHunt']['noStage'] = 'FALSE'
                     results['jobHunt']['midStage'] = 'FALSE'
+                    return 'lateJobHunting'
             elif dict[4]['interviewMidStage'] == 1:
                 if dict[4]['interviewLateStage'] == 1: # Mid, late
                     results['jobHunt']['noStage'] = 'FALSE'
                     results['jobHunt']['earlyStage'] = 'FALSE'
+                    return 'midLateJobHunting'
         else: # if only one is selected
             if dict[4]['interviewNoStage'] == 1:
                 results['jobHunt']['earlyStage'] = 'FALSE'
                 results['jobHunt']['midStage'] = 'FALSE'
                 results['jobHunt']['lateStage'] = 'FALSE'
+                return 'allJobHunting'
             elif dict[4]['interviewEarlyStage'] == 1:
                 results['jobHunt']['noStage'] = 'FALSE'
                 results['jobHunt']['midStage'] = 'FALSE'
                 results['jobHunt']['lateStage'] = 'FALSE'
+                return 'earlyJobHunting'
             elif dict[4]['interviewMidStage'] == 1:
                 results['jobHunt']['noStage'] = 'FALSE'
                 results['jobHunt']['earlyStage'] = 'FALSE'
                 results['jobHunt']['lateStage'] = 'FALSE'
+                return 'midJobHunting'
             else:
                 results['jobHunt']['noStage'] = 'FALSE'
                 results['jobHunt']['earlyStage'] = 'FALSE'
                 results['jobHunt']['midStage'] = 'FALSE'
+                return 'lateJobHunting'
 
 
 
@@ -186,7 +200,7 @@ def add2() -> 'html':
                 elif 'newjob' not in goalsResponse:
                     storeValue(2, 'improvingSkills')
                     storeValue(2, 'breakingIn')
-                    return redirect('/results2')
+                    return redirect('/results')
                 else:
                     storeValue(2, 'improvingSkills')
                     storeValue(2, 'findingNewJob')
@@ -201,8 +215,8 @@ def add2() -> 'html':
                         return redirect('/interview-status')
                 else:
                     storeValue(2, 'improvingSkills')
-                    return redirect('/results2')
-    return redirect('/results2')
+                    return redirect('/results')
+    return redirect('/results')
 
 @app.route('/interview-status')
 def interviewstatus_page() -> 'html':
@@ -215,7 +229,7 @@ def add4() -> 'html':
             storeValue(3, 'activelyApplying')
             return redirect('/interview-stage')
         else:
-            return redirect('/results2')
+            return redirect('/results')
 
 @app.route('/interview-stage')
 def interviewstage_page() -> 'html':
@@ -230,82 +244,82 @@ def add5() -> 'html':
             storeValue(4, 'interviewEarlyStage')
             storeValue(4, 'interviewMidStage')
             storeValue(4, 'interviewLateStage')
-            return redirect('/results2')
+            return redirect('/results')
         elif len(jobHuntResponse) == 3:
             if 'applying' not in jobHuntResponse:
                 storeValue(4, 'interviewEarlyStage')
                 storeValue(4, 'interviewMidStage')
                 storeValue(4, 'interviewLateStage')
-                return redirect('/results2')
+                return redirect('/results')
             elif 'early' not in jobHuntResponse:
                 storeValue(4, 'interviewNoStage')
                 storeValue(4, 'interviewMidStage')
                 storeValue(4, 'interviewLateStage')
-                return redirect('/results2')
+                return redirect('/results')
             elif 'mid' not in jobHuntResponse:
                 storeValue(4, 'interviewNoStage')
                 storeValue(4, 'interviewEarlyStage')
                 storeValue(4, 'interviewLateStage')
-                return redirect('/results2')
+                return redirect('/results')
             else: # if late not in
                 storeValue(4, 'interviewNoStage')
                 storeValue(4, 'interviewEarlyStage')
                 storeValue(4, 'interviewMidStage')
-                return redirect('/results2')
+                return redirect('/results')
         elif len(jobHuntResponse) == 2:
             if 'applying' not in jobHuntResponse:
                 if 'early' not in jobHuntResponse:
                     storeValue(4, 'interviewMidStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 elif 'mid' not in jobHuntResponse:
                     storeValue(4, 'interviewEarlyStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 else: # if late not in
                     storeValue(4, 'interviewEarlyStage')
                     storeValue(4, 'interviewMidStage')
-                    return redirect('/results2')
+                    return redirect('/results')
             elif 'early' not in jobHuntResponse:
                 if 'applying' not in jobHuntResponse:
                     storeValue(4, 'interviewMidStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 elif 'mid' not in jobHuntResponse:
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 else: # if late not in
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewMidStage')
-                    return redirect('/results2')
+                    return redirect('/results')
             elif 'mid' not in jobHuntResponse:
                 if 'applying' not in jobHuntResponse:
                     storeValue(4, 'interviewEarlyStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 elif 'early' not in jobHuntResponse:
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewLateStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 else: # if late not in
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewEarlyStage')
-                    return redirect('/results2')
+                    return redirect('/results')
             else: # if late not in
                 if 'applying' not in jobHuntResponse:
                     storeValue(4, 'interviewEarlyStage')
                     storeValue(4, 'interviewMidStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 elif 'early' not in jobHuntResponse:
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewMidStage')
-                    return redirect('/results2')
+                    return redirect('/results')
                 else: # if mid not in  
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewEarlyStage')
-                    return redirect('/results2')
-        return redirect('/results2')
+                    return redirect('/results')
+        return redirect('/results')
 
 
 @app.route('/add6')
@@ -315,7 +329,7 @@ def add6() -> 'html':
     jobHunting_results()
     
 
-@app.route ('/results2')
+@app.route ('/results')
 def results_page() -> 'html':
     aspiring_role = aspiringRole_results()
     improving_skills = improvingSkills_results()

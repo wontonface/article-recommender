@@ -7,20 +7,7 @@
 
 <div class="body-content" role="main">
     <!--- Progress bar ---->
-    <ul id="progressBar" class="progress-container" role="navigation">
-        <li class="complete" aria-label="Article quiz - Step 1">
-            <a href="/current-designer" tabindex="0">Are you a designer?</a>
-        </li>
-        <li class="enable" aria-label="Article quiz - Step 2">
-            <a href="/your-goals" tabindex="0" aria-label="Article Quiz - Step 2 - pending">What are you interested in?</a>
-        </li>
-        <li class="" aria-label="Article Quiz - Step 3">
-            <a href="/interview-status" tabindex="-1" aria-label="Article Quiz - Step 3 - incomplete link">Interviewing status</a>
-        </li>
-        <li class="" aria-label="Article Quiz - Step 4">
-            <a href="/interview-stage" tabindex="-1" aria-label="Article Quiz - Step 4 - incomplete link">Interview stage</a>
-        </li>
-    </ul>
+    {{ components.progressBar(3) }}
 
     <!--- Start page content ---->
     <div class="text-container">

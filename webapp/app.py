@@ -158,10 +158,11 @@ def currentdesigner_page() -> 'html':
 @app.route('/add', methods=['GET', 'POST'])
 def add() -> 'html':
     if request.method == 'POST':
-        if request.form.get('currentdesigner') == 'yes':
-            storeValue(1, 'isDesigner')
-        else:
-            return redirect('/aspiring-designer')
+        if dict[1]['isDesigner'] == 0: # Prevents incrementing over 1
+            if request.form.get('currentdesigner') == 'yes':
+                storeValue(1, 'isDesigner')
+            else:
+                return redirect('/aspiring-designer')
     return redirect('/your-goals')
 
 @app.route('/aspiring-designer', methods=['GET', 'POST'])

@@ -185,9 +185,14 @@ def currentdesigner_page() -> 'html':
 def add() -> 'html':
     if request.method == 'POST':
         if request.form.get('currentdesigner') == 'yes':
-            validateInput(1, 'yes')
+            if dict[1]['isDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
+                storeValue(1, 'isDesigner')
         else:
-            validateInput(1, 'no')
+            if dict[1]['isDesigner'] == 1: # Check if user changed answer
+                minusValue(1, 'isDesigner')
+                return redirect('/aspiring-designer')
+            else:
+                return redirect('/aspiring-designer')  
     return redirect('/your-goals')
 
     
@@ -200,11 +205,18 @@ def aspiringdesigner_page() -> 'html':
 def add1() -> 'html':
     if request.method == 'POST':
         if request.form.get('aspiringdesigner') == 'yes':
-            storeValue(1, 'aspiringDesigner')
-            return redirect('/your-goals')
+            if dict[1]['aspiringNonDesigner'] == 1: # Check if user changed answer
+                minusValue(1, 'aspiringNonDesigner')
+                storeValue(1, 'aspiringDesigner')
+            elif dict[1]['aspiringDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
+                storeValue(1, 'aspiringDesigner')
         else:
-            storeValue(1, 'aspiringNonDesigner')
-            return redirect('/your-goals')
+            if dict[1]['aspiringDesigner'] == 1: # Check if user changed answer
+                minusValue(1, 'aspiringDesigner')
+                storeValue(1, 'aspiringNonDesigner')
+            elif dict[1]['aspiringNonDesigner'] == 0:
+                storeValue(1, 'aspiringNonDesigner')
+    return redirect('/your-goals')
 
 @app.route('/your-goals', methods=['GET', 'POST'])
 def yourgoals_page() -> 'html':

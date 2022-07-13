@@ -50,6 +50,32 @@ mylist = []
 def storeValue(i, key):
     dict[i][key] += 1
 
+def minusValue(i, key):
+    dict[i][key] -= 1
+
+def validateInput(step, value):
+    if step == '1':
+        if value == 'yes': 
+            if dict[1]['isDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
+                storeValue(1, 'isDesigner')
+        else:
+            if dict[1]['isDesigner'] == 1: # Check if user changed answer
+                minusValue(1, 'isDesigner')
+                return redirect('/aspiring-designer')
+            else:
+                return redirect('/aspiring-designer')  
+    elif step == '2':
+        pass
+    elif step == '3':
+        pass
+    elif step == '4':
+        pass
+    elif step == '5':
+        pass
+    elif step == '6':
+        pass
+
+
 def aspiringRole_results(): # Check for inverse
     if dict[1]['aspiringNonDesigner'] == 1:
         results['aspiringRole']['nonDesigner'] = 'TRUE'
@@ -158,12 +184,13 @@ def currentdesigner_page() -> 'html':
 @app.route('/add', methods=['GET', 'POST'])
 def add() -> 'html':
     if request.method == 'POST':
-        if dict[1]['isDesigner'] == 0: # Prevents incrementing over 1
-            if request.form.get('currentdesigner') == 'yes':
-                storeValue(1, 'isDesigner')
-            else:
-                return redirect('/aspiring-designer')
+        if request.form.get('currentdesigner') == 'yes':
+            validateInput(1, 'yes')
+        else:
+            validateInput(1, 'no')
     return redirect('/your-goals')
+
+    
 
 @app.route('/aspiring-designer', methods=['GET', 'POST'])
 def aspiringdesigner_page() -> 'html':

@@ -53,6 +53,9 @@ def storeValue(i, key):
 def minusValue(i, key):
     dict[i][key] -= 1
 
+def clearValue(i, key):
+    dict[i][key] = 0
+
 def validateInput(step, value):
     if step == '1':
         if value == 'yes': 
@@ -226,6 +229,9 @@ def yourgoals_page() -> 'html':
 def add2() -> 'html':
     if request.method == 'POST':
         if 'skills' or 'newjob' or 'tech' in request.form.getlist('goal'):
+            clearValue(2, 'improvingSkills')
+            clearValue(2, 'findingNewJob')
+            clearValue(2, 'breakingIn')  
             goalsResponse = request.form.getlist('goal')
             if len(goalsResponse) == 3:
                 storeValue(2, 'improvingSkills')
@@ -278,6 +284,10 @@ def interviewstage_page() -> 'html':
 @app.route('/add5', methods=['GET', 'POST'])
 def add5() -> 'html':
     if request.method == 'POST':
+        clearValue(4, 'interviewNoStage')
+        clearValue(4, 'interviewEarlyStage')
+        clearValue(4, 'interviewMidStage')
+        clearValue(4, 'interviewLateStage')  
         jobHuntResponse = request.form.getlist('stage')
         if len(jobHuntResponse) == 4:
             storeValue(4, 'interviewNoStage')

@@ -58,6 +58,9 @@
             </div>
         </form>
     </div>
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
     <!--- Pagination ---->
     <div class="buttons-container">
         <button class="button-back" role="button" onclick="history.back()"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>

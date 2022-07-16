@@ -177,6 +177,7 @@ def aspiringdesigner_page() -> 'html':
 
 @app.route('/add1', methods=['GET', 'POST'])
 def add1() -> 'html':
+    error = None
     if request.method == 'POST':
         if request.form.get('aspiringdesigner') == 'yes':
             if dict[1]['aspiringNonDesigner'] == 1: # Check if user changed answer
@@ -184,12 +185,15 @@ def add1() -> 'html':
                 storeValue(1, 'aspiringDesigner')
             elif dict[1]['aspiringDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
                 storeValue(1, 'aspiringDesigner')
-        else:
+        elif request.form.get('aspiringdesigner') == 'no':
             if dict[1]['aspiringDesigner'] == 1: # Check if user changed answer
                 minusValue(1, 'aspiringDesigner')
                 storeValue(1, 'aspiringNonDesigner')
             elif dict[1]['aspiringNonDesigner'] == 0:
                 storeValue(1, 'aspiringNonDesigner')
+        else:
+            error = 'Invalid input'
+            return render_template('aspiring-designer.html', error=error)
     return redirect('/your-goals')
 
 @app.route('/your-goals', methods=['GET', 'POST'])
@@ -198,6 +202,7 @@ def yourgoals_page() -> 'html':
 
 @app.route('/add2', methods=['GET', 'POST'])
 def add2() -> 'html':
+    error = None
     if request.method == 'POST':
         if 'skills' or 'newjob' or 'tech' in request.form.getlist('goal'):
             clearValue(2, 'improvingSkills')
@@ -222,7 +227,7 @@ def add2() -> 'html':
                     storeValue(2, 'improvingSkills')
                     storeValue(2, 'findingNewJob')
                     return redirect('/interview-status')
-            else:
+            elif len(goalsResponse) == 1:
                 if 'skills' not in goalsResponse:
                     if 'newjob' not in goalsResponse:
                         storeValue(2, 'breakingIn')
@@ -233,6 +238,9 @@ def add2() -> 'html':
                 else:
                     storeValue(2, 'improvingSkills')
                     return redirect('/results')
+            else:
+                error = 'Invalid input'
+                return render_template('your-goals.html', error=error)
     return redirect('/results')
 
 @app.route('/interview-status')
@@ -241,12 +249,16 @@ def interviewstatus_page() -> 'html':
 
 @app.route('/add4', methods=['GET', 'POST'])
 def add4() -> 'html':
+    error = None
     if request.method == 'POST':
         if request.form.get('interviewstatus') == 'yes':
             storeValue(3, 'activelyApplying')
             return redirect('/interview-stage')
-        else:
+        elif request.form.get('interviewstatus') == 'no':
             return redirect('/results')
+        else:
+            error = 'Invalid input'
+            return render_template('interview-status.html', error=error)
 
 @app.route('/interview-stage')
 def interviewstage_page() -> 'html':
@@ -254,6 +266,7 @@ def interviewstage_page() -> 'html':
 
 @app.route('/add5', methods=['GET', 'POST'])
 def add5() -> 'html':
+    error = None
     if request.method == 'POST':
         clearValue(4, 'interviewNoStage')
         clearValue(4, 'interviewEarlyStage')
@@ -340,6 +353,18 @@ def add5() -> 'html':
                     storeValue(4, 'interviewNoStage')
                     storeValue(4, 'interviewEarlyStage')
                     return redirect('/results')
+        elif len(jobHuntResponse) == 1:
+            if 'applying' in jobHuntResponse:
+                storeValue(4, 'interviewNoStage')
+            elif 'early' in jobHuntResponse:
+                storeValue(4, 'interviewEarlyStage')
+            elif 'mid' in jobHuntResponse:
+                storeValue(4, 'interviewMidStage')
+            else:
+                storeValue(4, 'interviewLateStage')
+        else:
+            error = 'Invalid input'
+            return render_template('interview-stage.html', error=error)
         return redirect('/results')
 
 

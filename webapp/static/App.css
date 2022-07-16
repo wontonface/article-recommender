@@ -790,3 +790,20 @@ p.card-description {
     gap: 20px;
 }
 
+.error-banner {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0 4px 24px;
+    border-radius: 15px;
+    border: 2px solid #FF6363;
+    background-color: #FFF3F3;
+}
+
+
+p.error-text {
+    color: #C80000;
+    font-size: 14px;
+}

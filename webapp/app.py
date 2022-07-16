@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, flash, render_template, request, redirect
 
 
 
@@ -43,8 +43,6 @@ results = {
         }   
 }
 
-
-
 mylist = []
 
 def storeValue(i, key):
@@ -55,29 +53,6 @@ def minusValue(i, key):
 
 def clearValue(i, key):
     dict[i][key] = 0
-
-def validateInput(step, value):
-    if step == '1':
-        if value == 'yes': 
-            if dict[1]['isDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
-                storeValue(1, 'isDesigner')
-        else:
-            if dict[1]['isDesigner'] == 1: # Check if user changed answer
-                minusValue(1, 'isDesigner')
-                return redirect('/aspiring-designer')
-            else:
-                return redirect('/aspiring-designer')  
-    elif step == '2':
-        pass
-    elif step == '3':
-        pass
-    elif step == '4':
-        pass
-    elif step == '5':
-        pass
-    elif step == '6':
-        pass
-
 
 def aspiringRole_results(): # Check for inverse
     if dict[1]['aspiringNonDesigner'] == 1:
@@ -163,11 +138,7 @@ def jobHunting_results():
                 results['jobHunt']['midStage'] = 'FALSE'
                 return 'lateJobHunting'
 
-
-
-## @app.before_request()
-## create a function to capture the user's last visited page
-
+        
 @app.route('/')
 def entry_page() -> 'html':
     return render_template('entry.html', the_title='Welcome to the article recommender')
@@ -186,16 +157,16 @@ def currentdesigner_page() -> 'html':
 
 @app.route('/add', methods=['GET', 'POST'])
 def add() -> 'html':
+    error = None
     if request.method == 'POST':
+        clearValue(1, 'isDesigner')
         if request.form.get('currentdesigner') == 'yes':
-            if dict[1]['isDesigner'] == 0: # Check that it doesn't already exist. Otherwise skip
-                storeValue(1, 'isDesigner')
+            storeValue(1, 'isDesigner')
+        elif request.form.get('currentdesigner') == 'no':
+            return redirect('/aspiring-designer')
         else:
-            if dict[1]['isDesigner'] == 1: # Check if user changed answer
-                minusValue(1, 'isDesigner')
-                return redirect('/aspiring-designer')
-            else:
-                return redirect('/aspiring-designer')  
+            error = 'Invalid input'
+            return render_template('your-role.html', error=error)
     return redirect('/your-goals')
 
     
@@ -390,27 +361,7 @@ def results_page() -> 'html':
                             results_jobHunting=job_hunting,)
 
 
-## @app.errorhandler(404)
-## def not_found():
-##  return make_response(render_template("404.html"), 404)
 
-# @app.route('/entry')
-# def entry_page() -> 'html':
-  #  return render_template('entry.html', the_title='welcome to the app recommender')
 
 app.run(debug=True)
-
-
-#### Old code ####
-## app = Flask(__name__, static_url_path='', static_folder='frontend')
-## CORS(app) #comment this on deployment
-## api = Api(app)
-
-## @app.route("/", defaults={'path':''})
-## def serve(path):
-    ## return send_from_directory(app.static_folder, 'index.html')
-
-
-## api.add_resource(HelloApiHandler, '/flask/hello')
-
 

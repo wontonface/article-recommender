@@ -34,6 +34,9 @@
 
     <!--- {{ components.pagination('', 'your-goals') }} ---->
 
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
 
     <div class="buttons-container">
         <button class="button-back" role="button" onclick="window.location.href='/';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>

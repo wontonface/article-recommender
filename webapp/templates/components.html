@@ -33,6 +33,13 @@
 
 {%- endmacro %} 
 
+{% macro errorBanner() -%}
+<div class="error-banner">
+    <i class="ph-warning-circle" style="font-size: 1.5em; color: #FF6363;"></i><p class="error-text">Please select an option above.</p>
+</div>
+
+{%- endmacro %}
+
 {% macro footer() -%}
 
 <div class="footer">

@@ -27,13 +27,28 @@ html {
     display: flex;
     justify-content: left;
     gap: 12px;
+    align-items: center;
 }
 
-p.navigation-title {
+
+@media (max-width: 540px) {
+    .navigation-title-wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.navigation-title {
     font-family: 'Inter', sans-serif;
     font-size: 24px;
     font-weight: 600;
     color: #433B73;
+}
+
+@media (max-width: 650px) {
+    .navigation-title {
+        font-size: 16px;
+    }
 }
 
 .navigation-subtext {
@@ -41,7 +56,6 @@ p.navigation-title {
     font-size: 16px;
     font-weight: 600;
     color: #867EB9;
-    margin: 30px 0 0 0;
 }
 
 .navigation-learnmore-wrapper {
@@ -50,6 +64,7 @@ p.navigation-title {
     justify-content: right;
     align-items: center;
 }
+
 
 a.navigation-learnmore {
     font-family: 'Inter', sans-serif;
@@ -62,24 +77,41 @@ a.navigation-learnmore {
     align-items: center;
 }
 
+
+
 .body-content {
     font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    margin: 0 auto;
+    display: grid;
+    margin: 0 15rem;
     gap: 32px;
-    align-items: center;
-    max-width: 600px;
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+}
+
+@media (max-width: 800px) {
+    .body-content {
+        margin: 0 7rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .body-content {
+        margin: 0 3rem;
+    }
 }
 
 
-.section-title {
+h2.section-title {
     font-family: 'Inter', sans-serif;
     color: var(--neutral-800);
     font-size: 48px;
     font-weight: 700;
     margin: 0;
+}
+
+@media (max-width: 650px) {
+    h2.section-title {
+        font-size: 24px;
+    }
 }
 
 h2.page-title {
@@ -282,6 +314,8 @@ h1 {
     margin: -1px;
     text-align: left;
     color: #1c1c1c;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .card-content-vertical {
@@ -290,20 +324,31 @@ h1 {
     align-items: center;
     gap: 16px;
     border-radius: 20px;
-    padding: 32px 74px;
+    padding: 2rem 2.5rem;
     font-size: 24px;
     font-weight: 500;
     cursor: pointer;
     margin: -1px;
     text-align: left;
     color: #1c1c1c;
+    user-select: none;
+    -webkit-user-select: none;
 }
+
+@media (max-width: 750px) {
+    .card-content-vertical {
+        font-size: 20px;
+    }
+}
+
 
 .card-content-text {
     display: flex;
     flex-direction: column;
     margin: 0;
     gap: 4px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .card-title {
@@ -311,6 +356,8 @@ h1 {
     font-size: 24px;
     color: #1c1c1c;
     font-weight: 500;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .footer {
@@ -577,6 +624,7 @@ p.card-description {
     font-size: 18px;
     font-weight: 400;
     margin: 0;
+    
 }
 
 .time-to-read {
@@ -806,4 +854,5 @@ p.card-description {
 p.error-text {
     color: #C80000;
     font-size: 14px;
+    user-select: none;
 }

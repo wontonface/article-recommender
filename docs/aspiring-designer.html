@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% import 'components.html' as components %}
+{% block body %}
+
+{{ components.navigation() }}
+
+<div class="body-content" role="main">
+    <!---- Start page content ----->
+    <!---- Progress bar ----->
+    {{ components.progressBar(2) }}
+
+    <!---- Header ----->
+    <div class="text-container">
+        <h2 class="section-title">
+            Are you interested in becoming a product designer?
+        </h2>
+    </div>
+
+    <!---- Start options ------>
+    <div class="body-options">
+        <form id="question-2" method="POST" action="/add1">
+            <div class="quiz-container-column" role="group">
+                <div class="column-btn-wrapper">
+                    <input id="currentdesigner-1" class="column-checkbox" type="radio" name="aspiringdesigner" value="yes" method="POST" aria-label="Are you interested in becoming a product designer - Yes">
+                    <label for="currentdesigner-1" class="card-content-vertical">
+                        <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
+                        Yes, I am
+                </div>
+                <div class="column-btn-wrapper">
+                    <input id="currentdesigner-2" class="column-checkbox" type="radio" name="aspiringdesigner" value="no" method="POST" aria-label="Are you interested in becoming a product designer - No">
+                    <label for="currentdesigner-2" class="card-content-vertical"> 
+                        <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
+                        No, I'm not
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
+
+    <div class="buttons-container">
+        <button class="button-back" role="button" onclick="window.location.href='/current-designer';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-2" value="submit" method="POST" onclick="window.location.href='/add1';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
+    {{ components.footer() }}
+</div>
+
+
+
+{% endblock %}

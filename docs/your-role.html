@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% import 'components.html' as components %}
+{% block body %}
+
+{{ components.navigation() }}
+
+<div class="body-content" role="main">
+
+    {{ components.progressBar(1) }}
+    <div class="text-container">
+        <h2 class="section-title">
+            Are you currently working as a product designer?
+        </h2>
+    </div>
+    <div class="body-options">
+        <form id="question-1" method="POST" action="/add">
+            <div id="quiz-question-1" class="quiz-container-column" role="group">
+                <div class="column-btn-wrapper">
+                    <input id="currentdesigner-1" class="column-checkbox" type="radio" name="currentdesigner" value="yes" method="POST" aria-label="Are you currently working as a product designer - Yes">
+                    <label for="currentdesigner-1" class="card-content-vertical">
+                        <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
+                        Yes, I am
+                </div>
+                <div class="column-btn-wrapper">
+                    <input id="currentdesigner-2" class="column-checkbox" type="radio" name="currentdesigner" value="no" method="POST" aria-label="Are you currently working as a product designer - No">
+                    <label for="currentdesigner-2" class="card-content-vertical"> 
+                        <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
+                        No, I'm not
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--- {{ components.pagination('', 'your-goals') }} ---->
+
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
+
+    <div class="buttons-container">
+        <button class="button-back" role="button" onclick="window.location.href='/';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-1" value="submit" method="POST" onclick="window.location.href='/add';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
+
+
+    {{ components.footer() }}
+</div>
+
+<!--- Can change column-checkbox to be more generic, like column-select, since it will apply for both checkbox AND radio -->
+
+
+
+
+
+{% endblock %}

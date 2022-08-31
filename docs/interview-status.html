@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% import 'components.html' as components %}
+{% block body %}
+
+{{ components.navigation() }}
+
+<div class="body-content" role="main">
+    <!---- Start page content ----->
+    <!---- Progress bar ----->
+    {{ components.progressBar(4) }}
+
+    <!---- Header ----->
+    <div class="text-container">
+        <h2 class="section-title">
+            Have you started applying and/or interviewing?
+        </h2>
+    </div>
+
+    <!---- Options ------>
+    <div class="body-options">
+        <form id="question-5" method="POST" action="/add4">
+            <div class="quiz-container-column" role="group">
+                <div class="column-btn-wrapper">
+                    <input id="interviewstatus-1" class="column-checkbox" type="radio" name="interviewstatus" value="yes" method="POST" aria-label="Have you started applying or interviewing? - Yes">
+                    <label for="interviewstatus-1" class="card-content-vertical">
+                        <i class="ph-check-circle-bold" style="font-size: 1.5em"></i>
+                        Yes, I have
+                </div>
+                <div class="column-btn-wrapper">
+                    <input id="interviewstatus-2" class="column-checkbox" type="radio" name="interviewstatus" value="no" method="POST" aria-label="Have you started applying or interviewing? - No">
+                    <label for="interviewstatus-2" class="card-content-vertical"> 
+                        <i class="ph-x-circle-bold" style="font-size: 1.5em"></i>
+                        No, I haven't
+                </div>
+            </div>
+        </form>
+    </div>
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
+    <!--- Pagination ---->
+    <div class="buttons-container">
+        <button class="button-back" role="button" onclick="history.back()"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-5" value="submit" method="POST" onclick="window.location.href='/add4';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
+
+    {{ components.footer() }}
+
+</div>
+
+
+
+{% endblock %}

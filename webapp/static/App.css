@@ -25,7 +25,7 @@ html {
 
 .navigation-title-wrapper {
     display: flex;
-    justify-content: left;
+    flex-direction: row;
     gap: 12px;
     align-items: center;
 }
@@ -34,6 +34,7 @@ html {
 @media (max-width: 540px) {
     .navigation-title-wrapper {
         flex-direction: column;
+        align-items: left;
         gap: 0;
     }
 }
@@ -45,11 +46,7 @@ html {
     color: #433B73;
 }
 
-@media (max-width: 650px) {
-    .navigation-title {
-        font-size: 16px;
-    }
-}
+
 
 .navigation-subtext {
     font-family: 'Inter', sans-serif;
@@ -57,6 +54,8 @@ html {
     font-weight: 600;
     color: #867EB9;
 }
+
+
 
 .navigation-learnmore-wrapper {
     display: flex;
@@ -77,7 +76,11 @@ a.navigation-learnmore {
     align-items: center;
 }
 
-
+@media (max-width: 650px) {
+    .navigation-title, .navigation-subtext, a.navigation-learnmore {
+        font-size: 14px;
+    }
+}
 
 .body-content {
     font-family: 'Inter', sans-serif;
@@ -87,7 +90,7 @@ a.navigation-learnmore {
     grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
 }
 
-@media (max-width: 800px) {
+@media (max-width: 880px) {
     .body-content {
         margin: 0 7rem;
     }
@@ -138,6 +141,12 @@ h2.page-title {
     margin: 0;
 }
 
+@media (max-width: 750px) {
+    .section-subtext {
+        font-size: 14px;
+    }
+}
+
 .section-note {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -147,7 +156,16 @@ h2.page-title {
 p.page-subtext {
     font-family: 'Inter', sans-serif;
     font-size: 24px;
+    text-align: center;
     margin: 0;
+}
+
+@media (max-width: 750px) {
+    p.page-subtext {
+        font-size: 16px;
+        margin: 0 2rem;
+    }
+    
 }
 
 .text-container {
@@ -171,11 +189,18 @@ h1 {
     font-family: 'Obviously', sans-serif;
     color: var(--neutral-800);
     font-size: 64px;
-    line-height: 64px;
+    line-height: 90%;
     font-weight: 700;
     font-style: normal;
     margin: 0;
     text-align: center;
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 34px;
+    }
+    
 }
 
 .button-main {
@@ -190,7 +215,7 @@ h1 {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.5rem;
-    padding: .75rem 1.2 rem;
+    padding: .75rem 1.2rem;
     text-align: center;
     text-decoration: none #6B7280 solid;
     text-decoration-thickness: auto;
@@ -213,11 +238,7 @@ h1 {
     outline-offset: 2px;
 }
 
-@media (min-width: 768px) {
-    .button-main {
-        padding: .75rem 1.5rem;
-    }
-}
+
 
 .body-options {
     display: flex;
@@ -307,7 +328,7 @@ h1 {
     align-items: center;
     gap: 20px;
     border-radius: 20px;
-    padding: 32px 60px 32px 40px;
+    padding: 2rem 3rem 2rem 2rem;
     font-size: 24px;
     font-weight: 500;
     cursor: pointer;
@@ -316,6 +337,12 @@ h1 {
     color: #1c1c1c;
     user-select: none;
     -webkit-user-select: none;
+}
+
+@media (max-width: 750px) {
+    .card-content {
+        font-size: 20px;
+    }
 }
 
 .card-content-vertical {
@@ -338,6 +365,7 @@ h1 {
 @media (max-width: 750px) {
     .card-content-vertical {
         font-size: 20px;
+        text-align: center;
     }
 }
 
@@ -376,6 +404,13 @@ p.footer-text {
     font-size: 16px;
     font-weight: 500;
     color: #363636;
+}
+
+@media (max-width: 650px) {
+    p.footer-text {
+        font-size: 12px;
+    }
+    
 }
 
 .homepage-marquee {

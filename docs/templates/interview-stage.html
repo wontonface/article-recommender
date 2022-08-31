@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% import 'components.html' as components %}
+{% block body %}
+
+{{ components.navigation() }}
+
+<div class="body-content" role="main">
+    <!---- Progress bar ----->
+    {{ components.progressBar(5) }}
+
+    <!---- Header ----->
+    <div class="text-container">
+        <h2 class="section-title">
+            What stage of the process are you in?
+        </h2>
+        <div class="section-subtext">
+            Select all that apply.
+        </div>
+    </div>
+    <!---- Start options ------>
+    <div class="quiz-container-goals" role="group">
+        <form id="question-6" class="quiz-container-goals" method="POST" action="/add5">
+            <div class="goal-btn-wrapper">
+                <input id="stage-1" class="goal-checkbox" type="checkbox" name="stage" value="applying" method="POST" aria-label="Select stage - Just applying; I haven't started interviewing yet">
+                <label for="stage-1" class="card-content">
+                    <i class="ph-file-arrow-up-bold" style="font-size: 1.5em"></i>
+                    <div class="card-content-text">
+                        <h3 class="result-card-headline">Just applying</h3>
+                        <p class="card-description">I haven't started interviewing yet</p>
+                    </div>
+            </div>
+            <div class="goal-btn-wrapper">
+                <input id="stage-2" class="goal-checkbox" type="checkbox" name="stage" value="early" method="POST" aria-label="Select stage - Early stage; applying, speaking to recruiters">
+                <label for="stage-2" class="card-content">
+                    <i class="ph-flow-arrow-bold" style="font-size: 1.5em"></i>
+                    <div class="card-content-text">
+                        <h3 class="result-card-headline">Early stage</h3>
+                        <p class="card-description">Applying, speaking to recruiters</p>
+                    </div>
+            </div>
+            <div class="goal-btn-wrapper">
+                <input id="stage-3" class="goal-checkbox" type="checkbox" name="stage" value="mid" method="POST" aria-label="Select stage - Mid stage; speaking to hiring managers, design exercise">
+                <label for="stage-3" class="card-content">
+                    <i class="ph-strategy-bold" style="font-size: 1.5em"></i>
+                    <div class="card-content-text">
+                        <h3 class="result-card-headline">Mid stage</h3>
+                        <p class="card-description">Speaking to hiring managers, design exercise</p>
+                    </div>
+            </div>
+            <div class="goal-btn-wrapper">
+                <input id="stage-4" class="goal-checkbox" type="checkbox" name="stage" value="late" method="POST" aria-label="Select stage - Late stage; portfolio presentation, team interviews">
+                <label for="stage-4" class="card-content">
+                    <i class="ph-polygon-bold" style="font-size: 1.5em"></i>
+                    <div class="card-content-text">
+                        <h3 class="result-card-headline">Late stage</h3>
+                        <p class="card-description">Portfolio presentation, team interviews</p>
+                    </div>
+            </div>
+        </form>
+    </div>
+    {% if error %}
+        {{ components.errorBanner() }}
+    {% endif %}
+    <!--- Pagination ---->
+    <div class="buttons-container">
+        <button class="button-back" role="button" onclick="history.back()"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+        <button class="button-next" role="button" type="submit" form="question-6" value="submit" method="POST" onclick="window.location.href='/add5';">Submit <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+    </div>
+    {{ components.footer() }}
+</div>
+
+
+
+
+{% endblock %}

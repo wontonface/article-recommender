@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% import 'components.html' as components %}
+{% import 'results-logic.html' as logic %}
+{% block body %}
+
+{{ components.navigation() }}
+
+<div class="body-content">
+    <!---- Start page content ----->
+    <!---- Progress bar ----->
+    {{ components.progressBar(6) }}
+
+    <div class="text-container">
+        <h2 class="section-title">Here are your recommended articles</h2>
+        <p class="section-subtext">Interested in reading more? View all articles <a href="https://wontonface.substack.com/">here.</a></p>
+        <!--- {% if results_aspiringRole == 'nonDesigner' %}
+            {% if results_jobHunting == 'allJobHunting' %}
+               {{ logic.disclaimer_nonDesigner() }}
+            {% elif results_jobHunting == 'earlyJobHunting' %}
+                {{ logic.disclaimer_nonDesigner() }}
+            {% elif results_jobHunting == 'earlyMidJobHunting' %}
+                {{ logic.disclaimer_nonDesigner() }}
+            {% elif results_jobHunting == 'midJobHunting' %}
+                {{ logic.disclaimer_nonDesigner() }}
+            {% elif results_jobHunting == 'midLateJobHunting' %}
+                {{ logic.disclaimer_nonDesigner() }}
+            {% elif results_jobHunting == 'lateJobHunting' %}
+                {{ logic.disclaimer_nonDesigner() }}
+            {% endif %}
+        {% endif %} ---->
+    </div>
+</div>
+    <div class="results-container">
+
+        {% if results_aspiringRole == 'nonDesigner' %}
+            {{ logic.results_nonDesigner() }}
+        {% endif %}
+
+        {% if results_improvingSkills == 'nonImprovingSkills' %} 
+            {{ logic.results_nonImprovingSkills() }}
+        {% else %}
+            {{ logic.results_improvingSkills() }}
+        {% endif %}
+
+        {% if results_jobHunting == 'allJobHunting' %}
+            {{ logic.results_allJobHunting() }}
+        {% elif results_jobHunting == 'earlyJobHunting' %}
+            {{ logic.results_earlyJobHunting() }}
+        {% elif results_jobHunting == 'earlyMidJobHunting' %}
+            {{ logic.results_earlyMidJobHunting() }}
+        {% elif results_jobHunting == 'midJobHunting' %}
+            {{ logic.results_midLateJobHunting() }}
+        {% elif results_jobHunting == 'midLateJobHunting' %}
+            {{ logic.results_midLateJobHunting() }}
+        {% elif results_jobHunting == 'lateJobHunting' %}
+            {{ logic.results_lateJobHunting() }}
+        {% endif %}
+    </div>
+    <div class="body-content">
+        <button class="button-main" role="button" onclick="window.location.href='/';">Restart</button>
+    </div>
+    {{ components.footer() }}
+
+
+
+{% endblock %}

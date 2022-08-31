@@ -1,0 +1,61 @@
+{% macro navigation() -%}
+
+<div class="navigation-wrapper">
+    <div class="navigation-title-wrapper">
+        <div class="navigation-title"><a href="/">article recommender</a></div>
+        <div class="navigation-subtext">by wontonface</div>
+    </div>
+    <div class="navigation-learnmore-wrapper">
+        <a class="navigation-learnmore" href="https://wontonface.substack.com">Substack</p><i class="ph-arrow-up-right-bold" style="font-size: 1.5em"></i></a>
+    </div>
+</div>
+
+{%- endmacro %}
+
+
+{% macro progressBar(step) -%}
+
+    <ul id="progressBar" class="progress-container" role="navigation">
+        <li{% if step >= 1 %} class="complete"{% endif %} aria-label="Article quiz - Step 1">
+        </li>
+        <li{% if step >= 2 %} class="complete"{% endif %} aria-label="Article quiz - Step 2">
+        </li>
+        <li{% if step >= 3 %} class="complete"{% endif %} aria-label="Article Quiz - Step 3">
+        </li>
+        <li{% if step >= 4 %} class="complete"{% endif %} aria-label="Article Quiz - Step 4">
+        </li>
+        <li{% if step >= 5 %} class="complete"{% endif %} aria-label="Article Quiz - Step 5">
+        </li>
+        <li{% if step >= 6 %} class="complete"{% endif %} aria-label="Article Quiz - Step 6">
+        </li>
+    </ul>
+
+
+{%- endmacro %} 
+
+{% macro errorBanner() -%}
+<div class="error-banner">
+    <i class="ph-warning-circle" style="font-size: 1.5em; color: #FF6363;"></i><p class="error-text">Please select an option above.</p>
+</div>
+
+{%- endmacro %}
+
+{% macro footer() -%}
+
+<div class="footer">
+    <img src="static/Avatar-3.png" width="45" height="45">
+    <p class="footer-text">Built and designed by <a class="footer-link" href="https://nicoleiliana.com">Nicole Garcia</a></p>
+</div>
+
+{%- endmacro %}
+
+
+{% macro pagination(prevpage, nextpage) -%}
+
+<div class="buttons-container">
+    <button class="button-back" role="button" onclick="window.location.href='/{{ prevpage }}';"><i class="ph-arrow-left-bold" style="font-size: 1.5em"></i>Back</button>
+    <button class="button-next" role="button" type="submit" value="submit" method="POST" onclick="window.location.href='/{{ nextpage }}';">Next <i class="ph-arrow-right-bold" style="font-size: 1.5em"></i></button>
+</div>
+
+{%- endmacro %}
+
